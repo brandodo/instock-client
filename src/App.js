@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
-// import Warehouse page component
+// import WarehouseDetails page component
 // import Inventory page component
 
 export default class App extends Component {
