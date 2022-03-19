@@ -15,7 +15,7 @@ export default class App extends Component {
 		data: null,
 		itemdata: null,
 	};
-  {/* Miloan to review if still needed, remove if not needed */}
+  /* Miloan to review if still needed, remove if not needed */
 
 	onChangeHandler = (data) => {
 		this.setState({
@@ -35,24 +35,26 @@ export default class App extends Component {
         <Header />
         
         <Switch>
+          <Route path="/" exact render={() => <EditWarehouse />} />
           {/* make sure component prop matches actual component */}
-          <Route
+          {/* <Route
             path="/"
             exact
             render={(routerProps) => {
               <WarehouseDetails {...routerProps} />;
             }}
-          />
+          /> */}
           {/* make sure component prop matches actual component */}
-          <Route
+          {/* <Route
             path="/inventory"
             render={(routerProps) => {
               <InventoryDetails {...routerProps} />;
             }}
-          />
+          /> */}
         </Switch>
         <HeroFooter />
       </BrowserRouter>
     );
   }
 }
+
