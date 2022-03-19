@@ -1,11 +1,10 @@
-import './App.css';
+import HeroFooter from "./components/HeroFooter/HeroFooter";
+import React from "react";
+
+import "./App.css";
 
 function App() {
-  return (
-    <div >
-      hello world!
-    </div>
-  );
+	return <div>hello world!</div>;
 }
 
 export default App;
