@@ -1,4 +1,3 @@
-import HeroFooter from "./components/HeroFooter/HeroFooter";
 import React from "react";
 
 import "./App.css";
