@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React, { Component } from "react";
 // import WarehouseDetails page component
@@ -17,20 +16,3 @@ export default class App extends Component {
       </BrowserRouter>
     );
   }
-=======
-import React from "react";
-
-import "./App.css";
-
-function App() {
-<<<<<<< HEAD
-	return <div>hello world!</div>;
-=======
-  return (
-    <div >
-      develop branch!
-    </div>
-  );
->>>>>>> develop
->>>>>>> develop
-}
