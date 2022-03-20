@@ -2,13 +2,14 @@
 
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import "./App.scss";
-import Header from "./components/header/Header";
+// import Header from "./components/Header.jsx"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx"; // to be added -> Miloan
-import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Ashley
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+// import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx"; // to be added -> Miloan
+// import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Ashley
+import "./App.scss";
+
+// test rendering - remove after
+import AddEditInventory from "./components/AddInventory/AddEditInventory.jsx";
 
 export default class App extends Component {
   state = {
@@ -35,7 +36,8 @@ export default class App extends Component {
         <Header />
         
         <Switch>
-          <Route path="/" exact render={() => <EditWarehouse />} />
+          {/* REMEMBER TO REMOVE - below route is only for dev testing */}
+          <Route path="/" exact render={() => <AddEditInventory />} />
           {/* make sure component prop matches actual component */}
           {/* <Route
             path="/"

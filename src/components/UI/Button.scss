@@ -1,0 +1,10 @@
+@use "../../partials/mixin";
+@use "../../partials/variables" as *;
+
+.btn {
+  @include mixin.button;
+
+  @include mixin.tablet {
+    width: fit-content;
+  }
+}

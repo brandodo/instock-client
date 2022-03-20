@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./typography";
 
 @mixin mobile {
 	@media (max-width: $mobile-breakpoint) and (min-width: 320px) {
@@ -6,23 +7,22 @@
 	}
 }
 
-
 @mixin tablet {
-	@media (min-width: $tablet-breakpoint) {
-		@content;
-	}
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
 }
 
 @mixin desktop {
-	@media (min-width: $desktop-breakpoint) {
-		@content;
-	}
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
 }
 
 @mixin regular {
-	font-family: "Titillium";
-	font-weight: 400;
-	font-style: normal;
+  font-family: "Titillium";
+  font-weight: 400;
+  font-style: normal;
 }
 
 @mixin semi {
@@ -32,7 +32,61 @@
 }
 
 @mixin bold {
-	font-family: "Titillium";
-	font-weight: 700;
-	font-style: normal;
+  font-family: "Titillium";
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin headerFont {
+  font-family: "Titillium-Semi";
+  font-size: 28px;
+  line-height: 36px;
+  color: $instock-black;
+  padding-bottom: $padding-incr * 6;
+}
+
+@mixin subheaderFont {
+  font-family: "Titillium-Semi";
+  font-size: 20px;
+  line-height: 28px;
+  color: $instock-black;
+  padding-bottom: $padding-incr * 6;
+}
+
+@mixin labelFont {
+  font-family: "Titillium-Semi";
+  font-size: 13px;
+  line-height: 20px;
+  color: $instock-black;
+  padding-bottom: $padding-incr;
+}
+
+@mixin formField {
+  font-family: "Titillium-Reg";
+  height: 36px;
+  border: 1px solid $cloud;
+  border-radius: 20px;
+  width: 100%;
+  padding: $padding-incr * 2 $padding-incr * 4;
+  box-sizing: border-box;
+  color: $slate;
+}
+
+@mixin formSpacing {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-incr * 4 $padding-incr * 4 $padding-incr * 6 $padding-incr *
+    4;
+}
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $padding-incr * 2 $padding-incr * 4;
+  border-radius: 20px;
+  font-family: "Titillium-Semi";
+  font-size: 13px;
+  line-height: 20px;
+  width: 45%;
 }

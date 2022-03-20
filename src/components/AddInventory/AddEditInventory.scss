@@ -1,0 +1,172 @@
+@use "../../partials/mixin";
+@use "../../partials/variables" as *;
+
+.inventoryDetails {
+  &__form {
+    margin: 0 $mobile-margins;
+    padding-top: $padding-incr * 8;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+
+    & hr {
+      background: $cloud;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 $padding-incr * 4;
+
+    @include mixin.tablet {
+      justify-content: flex-start;
+      padding: 0 $padding-incr * 8;
+    }
+
+    @include mixin.desktop {
+      padding: 0 $padding-incr * 10;
+    }
+  }
+
+  &__back {
+    padding-top: $padding-incr * 2;
+    padding-right: $padding-incr * 3;
+  }
+
+  &__header {
+    @include mixin.headerFont;
+  }
+
+  &__body {
+    @include mixin.tablet {
+      display: flex;
+      justify-content: space-around;
+
+      & > hr {
+        margin: $padding-incr * 6 $padding-incr * 10;
+      }
+    }
+  }
+
+  &__subHeader {
+    @include mixin.subheaderFont;
+  }
+
+  &__label {
+    @include mixin.labelFont;
+  }
+
+  &__textInput,
+  &__dropdown {
+    @include mixin.formField;
+  }
+
+  &__dropdown {
+    appearance: none;
+    background-image: url("../../assets/images/Icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-x: 97%;
+  }
+
+  &__longText {
+    border: 1px solid $cloud;
+    border-radius: 20px;
+    width: 100%;
+    resize: none;
+    padding: $padding-incr * 2 $padding-incr * 4;
+    box-sizing: border-box;
+    font-family: "Titillium-Reg";
+    color: $slate;
+  }
+
+  &__itemDetails,
+  &__itemAvailability {
+    @include mixin.formSpacing;
+
+    @include mixin.tablet {
+      width: 100%;
+      padding: $padding-incr * 6 $padding-incr * 8;
+    }
+
+    @include mixin.desktop {
+      padding-left: $padding-incr * 10;
+      padding-right: $padding-incr * 10;
+    }
+  }
+
+  &__itemName,
+  &__itemDescription,
+  &__itemStatus,
+  &__itemQuantity {
+    padding-bottom: $padding-incr * 4;
+  }
+
+  &__itemStatus {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__itemQuantity {
+    @include mixin.desktop {
+      width: 122px;
+    }
+  }
+
+  &__statusOptions {
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  &__optionLeft {
+    margin-right: $padding-incr * 22;
+
+    @include mixin.tablet {
+      margin-right: $padding-incr * 10;
+    }
+  }
+
+  &__option {
+    margin-right: $padding-incr * 2;
+    background-color: $white;
+    border: 1px solid $cloud;
+
+    &:checked {
+      border: 1px solid $instock-indigo;
+      padding: $padding-incr;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-incr * 4 $padding-incr * 6;
+    background-color: $light-grey;
+
+    @include mixin.tablet {
+      justify-content: flex-end;
+      padding: $padding-incr * 6 $padding-incr * 8;
+    }
+
+    @include mixin.desktop {
+      padding-left: $padding-incr * 10;
+      padding-right: $padding-incr * 10;
+    }
+  }
+
+  &__cancel {
+    border: 1px solid $cloud;
+    background-color: $white;
+    color: $slate;
+  }
+
+  &__submit {
+    border: 1px solid $instock-indigo;
+    background-color: $instock-indigo;
+    color: $white;
+    margin-left: $padding-incr * 4;
+  }
+}
