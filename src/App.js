@@ -9,7 +9,7 @@ import HeroFooter from "./components/HeroFooter/HeroFooter";
 import "./App.scss";
 
 // test rendering - remove after
-import AddEditInventory from "./components/AddInventory/AddEditInventory.jsx";
+import AddEditInventory from "./components/AddEditInventory/AddEditInventory.jsx";
 
 export default class App extends Component {
   state = {

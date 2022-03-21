@@ -8,6 +8,7 @@ import "./AddEditInventory.scss";
 
 export default class AddEditInventory extends Component {
   state = {
+    isAdd: true,
     showQuantity: true,
   };
 
@@ -17,7 +18,7 @@ export default class AddEditInventory extends Component {
         ? this.setState({ showQuantity: false })
         : this.setState({ showQuantity: true });
     };
-
+    
     return (
       // add logic to include props depending on which page to render, add or edit
       <form className="inventoryDetails__form">
@@ -29,7 +30,11 @@ export default class AddEditInventory extends Component {
             alt="back-nav"
           />
           {/* TO DO: logic to render header */}
-          <h1 className="inventoryDetails__header">Add New Inventory Item</h1>
+          <h1 className="inventoryDetails__header">
+            {this.state.isAdd
+              ? "Add New Inventory Item"
+              : "Edit Inventory Item"}
+          </h1>
         </div>
         <hr></hr>
         <div className="inventoryDetails__body">
@@ -43,7 +48,10 @@ export default class AddEditInventory extends Component {
         <div className="inventoryDetails__btn-container">
           {/* TO DO: add Link to go back to inventory page */}
           <Button className="inventoryDetails__cancel" text="Cancel" />
-          <Button className="inventoryDetails__submit" text="+ Add Item" />
+          <Button
+            className="inventoryDetails__submit"
+            text={this.state.isAdd ? "+ Add Item" : "Save"}
+          />
           {/* TO DO: logic to render submit button text */}
         </div>
       </form>
