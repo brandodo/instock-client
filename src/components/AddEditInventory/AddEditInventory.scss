@@ -186,8 +186,18 @@
     margin-left: $padding-incr * 4;
     width: 45%;
 
+    &-disabled {
+      opacity: 75%;
+    }
+
     @include mixin.tablet {
       width: fit-content;
+    }
+
+    @include mixin.desktop {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

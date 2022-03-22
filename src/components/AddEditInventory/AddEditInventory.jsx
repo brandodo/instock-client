@@ -11,7 +11,7 @@ import inventoryData from "../../temp/inventories.json";
 
 export default class AddEditInventory extends Component {
   state = {
-    isAdd: false, // should this be passed as prop or use state?
+    isAdd: true, // should this be passed as prop or use state?
     showQuantity: true,
     itemName: "",
     itemDescription: "",
@@ -136,8 +136,23 @@ export default class AddEditInventory extends Component {
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
-            className="inventoryDetails__submit "
+            className={
+              this.state.itemName &&
+              this.state.itemDescription &&
+              this.state.status &&
+              this.state.quantity
+                ? "inventoryDetails__submit"
+                : "inventoryDetails__submit inventoryDetails__submit-disabled"
+            }
             onClick={() => handleForm()}
+            disabled={
+              this.state.itemName &&
+              this.state.itemDescription &&
+              this.state.status &&
+              this.state.quantity
+                ? false
+                : true
+            }
           >
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>
