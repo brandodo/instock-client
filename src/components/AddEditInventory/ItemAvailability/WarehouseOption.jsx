@@ -1,5 +1,9 @@
 import React from "react";
 
-export default function WarehouseOption() {
-  return <option>WarehouseOption</option>;
+export default function WarehouseOption({ value }) {
+  return (
+    <>
+      <option>{value}</option>
+    </>
+  );
 }

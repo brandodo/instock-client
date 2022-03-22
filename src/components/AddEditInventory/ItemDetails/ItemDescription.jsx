@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ItemDescription() {
+export default function ItemDescription({ value, handleChange }) {
   return (
     <div className="inventoryDetails__itemDescription">
       <label className="inventoryDetails__label" htmlFor="itemDescription">
@@ -12,6 +12,8 @@ export default function ItemDescription() {
         type="text"
         name="itemDescription"
         placeholder="Please enter a brief item description..."
+        value={value}
+        onChange={(event) => handleChange(event)}
       />
     </div>
   );

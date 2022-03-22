@@ -157,16 +157,37 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+    width: 45%;
+
+    @include mixin.tablet {
+      width: fit-content;
+    }
+  }
+
   &__cancel {
+    @include mixin.button;
     border: 1px solid $cloud;
     background-color: $white;
     color: $slate;
+    width: 100%;
+
+    @include mixin.tablet {
+      width: fit-content;
+    }
   }
 
   &__submit {
+    @include mixin.button;
     border: 1px solid $instock-indigo;
     background-color: $instock-indigo;
     color: $white;
     margin-left: $padding-incr * 4;
+    width: 45%;
+
+    @include mixin.tablet {
+      width: fit-content;
+    }
   }
 }

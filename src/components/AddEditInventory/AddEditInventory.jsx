@@ -1,16 +1,40 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from "../UI/Button.jsx";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
+import axios from "axios";
 import "./AddEditInventory.scss";
+
+// remove after testing
+import inventoryData from "../../temp/inventories.json";
 
 export default class AddEditInventory extends Component {
   state = {
-    isAdd: true,
+    isAdd: false, // should this be passed as prop or use state?
     showQuantity: true,
+    itemName: "",
+    itemDescription: "",
+    category: "",
+    status: "",
+    quantity: 0,
+    warehouse: "",
+    redirect: false,
   };
+
+  componentDidMount() {
+    if (!this.state.isAdd) {
+      const inventoryEdit = inventoryData[inventoryData.length - 1];
+      this.setState({
+        itemName: inventoryEdit.itemName,
+        itemDescription: inventoryEdit.description,
+        category: inventoryEdit.category,
+        status: inventoryEdit.status,
+        quantity: inventoryEdit.quantity,
+        warehouse: inventoryEdit.warehouseName,
+      });
+    }
+  }
 
   render() {
     const displayQty = (status) => {
@@ -18,18 +42,69 @@ export default class AddEditInventory extends Component {
         ? this.setState({ showQuantity: false })
         : this.setState({ showQuantity: true });
     };
-    
+
+    const handleChange = (event) => {
+      if (event.target.name === "status") {
+        event.target.value === "inStock"
+          ? this.setState({ status: "In Stock" })
+          : this.setState({ status: "Out of Stock" });
+      } else {
+        this.setState({ [event.target.name]: event.target.value });
+      }
+      console.log(event.target.name, event.target.value);
+    };
+
+    const handleForm = () => {
+      const inventoryEdit = inventoryData[inventoryData.length - 1];
+      this.state.isAdd
+        ? addInventory()
+        : editInventory(inventoryEdit.id, inventoryEdit.warehouseID);
+    };
+
+    const addInventory = () => {
+      axios
+        .post("http://localhost:8080/inventory/add", {
+          itemName: this.state.itemName,
+          itemDescription: this.state.itemDescription,
+          category: this.state.category,
+          status: this.state.status,
+          quantity: this.state.quantity,
+          warehouse: this.state.warehouse,
+        })
+        .then(() => {
+          this.setState({ redirect: true });
+        });
+    };
+
+    const editInventory = (inventoryId, warehouseId) => {
+      axios
+        .put(
+          `http://localhost:8080/inventory/edit/${inventoryId}/${warehouseId}`,
+          {
+            itemName: this.state.itemName,
+            itemDescription: this.state.itemDescription,
+            category: this.state.category,
+            status: this.state.status,
+            quantity: this.state.quantity,
+            warehouse: this.state.warehouse,
+          }
+        )
+        .then(() => {
+          this.setState({ redirect: true });
+        });
+    };
+
     return (
-      // add logic to include props depending on which page to render, add or edit
       <form className="inventoryDetails__form">
         <div className="inventoryDetails__container">
-          {/* TO DO: add Link to go back to inventory page */}
-          <img
-            className="inventoryDetails__back"
-            src={backArrow}
-            alt="back-nav"
-          />
-          {/* TO DO: logic to render header */}
+          <Link to="/">
+            <img
+              className="inventoryDetails__back"
+              src={backArrow}
+              alt="back-nav"
+            />
+          </Link>
+          {/* should this be passed as prop or use state? */}
           <h1 className="inventoryDetails__header">
             {this.state.isAdd
               ? "Add New Inventory Item"
@@ -38,21 +113,34 @@ export default class AddEditInventory extends Component {
         </div>
         <hr></hr>
         <div className="inventoryDetails__body">
-          <ItemDetails />
+          <ItemDetails
+            itemName={this.state.itemName}
+            itemDescription={this.state.itemDescription}
+            category={this.state.category}
+            handleChange={handleChange}
+            data={inventoryData}
+          />
           <hr></hr>
           <ItemAvailability
             showQty={this.state.showQuantity}
             changeHandler={displayQty}
+            status={this.state.status}
+            quantity={this.state.quantity}
+            warehouse={this.state.warehouse}
+            handleChange={handleChange}
+            data={inventoryData}
           />
         </div>
         <div className="inventoryDetails__btn-container">
-          {/* TO DO: add Link to go back to inventory page */}
-          <Button className="inventoryDetails__cancel" text="Cancel" />
-          <Button
-            className="inventoryDetails__submit"
-            text={this.state.isAdd ? "+ Add Item" : "Save"}
-          />
-          {/* TO DO: logic to render submit button text */}
+          <Link to="/inventory" className="inventoryDetails__link ">
+            <button className="inventoryDetails__cancel">Cancel</button>
+          </Link>
+          <button
+            className="inventoryDetails__submit "
+            onClick={() => handleForm()}
+          >
+            {this.state.isAdd ? "+ Add Item" : "Save"}
+          </button>
         </div>
       </form>
     );
