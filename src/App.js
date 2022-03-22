@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import "./App.css";
+import "./App.scss";
+import Header from "./components/header/Header";
+import Footer from "./components/HeroFooter/HeroFooter";
 
-function App() {
-<<<<<<< HEAD
-	return <div>hello world!</div>;
-=======
-  return (
-    <div >
-      develop branch!
-    </div>
-  );
->>>>>>> develop
+export default class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Header />
+        <Footer />
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;
