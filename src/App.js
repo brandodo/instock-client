@@ -38,7 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         
         <Switch>
           {/* REMEMBER TO REMOVE - below route is only for dev testing */}
