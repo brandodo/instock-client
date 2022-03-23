@@ -13,9 +13,6 @@ import HeroFooter from "./components/HeroFooter/HeroFooter";
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory.jsx";
 import "./App.scss";
 
-// test rendering - remove after
-
-
 export default class App extends Component {
   state = {
 		data: null,
@@ -41,65 +38,46 @@ export default class App extends Component {
         {/* <Header /> */}
         
         <Switch>
-          {/* REMEMBER TO REMOVE - below route is only for dev testing */}
-          <Route path="/" exact render={() => <AddEditInventory />} />
-
           {/* <Route
-            path="/"
+            path="/warehouses"
             exact
-            render={(routerProps) => {
-              <WarehouseList {...routerProps} />;
-            }}
+            render={(routerProps) => <WarehouseList {...routerProps} />}
           /> */}
 
           {/* <Route
-            path="/warehouseDetails"
-            render={(routerProps) => {
-              <WarehouseDetails {...routerProps} />;
-            }}
+            path="/warehouses/:id"
+            render={(routerProps) => <WarehouseDetails {...routerProps} />}
           /> */}
 
           {/* <Route
-            path="/warehouse/edit/:warehouseId"
-            render={(routerProps) => {
-              <AddEditWarehouse {...routerProps} />;
-            }}
+            path="/warehouses/edit/:id"
+            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 
           {/* <Route
-            path="/warehouse/add"
-            render={(routerProps) => {
-              <AddEditWarehouse {...routerProps} />;
-            }}
+            path="/warehouses/add"
+            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 
           {/* <Route
             path="/inventory"
-            render={(routerProps) => {
-              <InventoryList {...routerProps} />;
-            }}
+            render={(routerProps) => <InventoryList {...routerProps} />}
           /> */}
 
           {/* <Route
-            path="/inventoryDetails"
-            render={(routerProps) => {
-              <InventoryDetails {...routerProps} />;
-            }}
+            path="/inventory/:id"
+            render={(routerProps) => <InventoryDetails {...routerProps} />}
           /> */}
 
-          {/* <Route
+          <Route
             path="/inventory/add"
-            render={(routerProps) => {
-              <AddEditInventory {...routerProps} />;
-            }}
-          /> */}
+            render={(routerProps) => <AddEditInventory {...routerProps} />}
+          />
 
-          {/* <Route
-            path="/inventory/edit/:inventoryId/:warehouseId"
-            render={(routerProps) => {
-              <AddEditInventory {...routerProps} />;
-            }}
-          /> */}
+          <Route
+            path="/inventory/edit/:id"
+            render={(routerProps) => <AddEditInventory {...routerProps} />}
+          />
         </Switch>
         <HeroFooter />
       </BrowserRouter>
