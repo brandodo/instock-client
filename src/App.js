@@ -1,14 +1,21 @@
+
+
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import "./App.scss";
+import Header from "./components/header/Header";
 import HeroFooter from "./components/HeroFooter/HeroFooter";
-import { BrowserRouter, Switch } from "react-router-dom";
-import React from "react";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx"; // to be added -> Miloan
+import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Ashley
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 
-import "./App.css";
-
-class App extends React.Component {
-	state = {
+export default class App extends Component {
+  state = {
 		data: null,
 		itemdata: null,
 	};
+  {/* Miloan to review if still needed, remove if not needed */}
 
 	onChangeHandler = (data) => {
 		this.setState({
@@ -21,15 +28,31 @@ class App extends React.Component {
 			itemdata: data,
 		});
 	};
-
-	render() {
-		return (
-			<BrowserRouter>
-				<Switch></Switch>
-				<HeroFooter />
-			</BrowserRouter>
-		);
-	}
+  
+  render() {
+    return (
+      <BrowserRouter>
+        <Header />
+        
+        <Switch>
+          {/* make sure component prop matches actual component */}
+          <Route
+            path="/"
+            exact
+            render={(routerProps) => {
+              <WarehouseDetails {...routerProps} />;
+            }}
+          />
+          {/* make sure component prop matches actual component */}
+          <Route
+            path="/inventory"
+            render={(routerProps) => {
+              <InventoryDetails {...routerProps} />;
+            }}
+          />
+        </Switch>
+        <HeroFooter />
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;
