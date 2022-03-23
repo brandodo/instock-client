@@ -1,5 +1,3 @@
-
-
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -10,25 +8,8 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Ashley
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 
+
 export default class App extends Component {
-  state = {
-		data: null,
-		itemdata: null,
-	};
-  {/* Miloan to review if still needed, remove if not needed */}
-
-	onChangeHandler = (data) => {
-		this.setState({
-			data: data,
-		});
-	};
-
-	onChangeHandlerItem = (data) => {
-		this.setState({
-			itemdata: data,
-		});
-	};
-  
   render() {
     return (
       <BrowserRouter>
