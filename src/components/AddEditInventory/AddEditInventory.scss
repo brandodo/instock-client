@@ -1,4 +1,4 @@
-@use "../../partials/mixin";
+@use "../../partials/mixin" as *;
 @use "../../partials/variables" as *;
 
 .inventoryDetails {
@@ -19,12 +19,12 @@
     align-items: flex-start;
     padding: 0 $padding-incr * 4;
 
-    @include mixin.tablet {
+    @include tablet {
       justify-content: flex-start;
       padding: 0 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding: 0 $padding-incr * 10;
     }
   }
@@ -35,11 +35,11 @@
   }
 
   &__header {
-    @include mixin.headerFont;
+    @include headerFont;
   }
 
   &__body {
-    @include mixin.tablet {
+    @include tablet {
       display: flex;
       justify-content: space-around;
 
@@ -50,16 +50,16 @@
   }
 
   &__subHeader {
-    @include mixin.subheaderFont;
+    @include subheaderFont;
   }
 
   &__label {
-    @include mixin.labelFont;
+    @include labelFont;
   }
 
   &__textInput,
   &__dropdown {
-    @include mixin.formField;
+    @include formField;
   }
 
   &__dropdown {
@@ -83,14 +83,14 @@
 
   &__itemDetails,
   &__itemAvailability {
-    @include mixin.formSpacing;
+    @include formSpacing;
 
-    @include mixin.tablet {
+    @include tablet {
       width: 100%;
       padding: $padding-incr * 6 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding-left: $padding-incr * 10;
       padding-right: $padding-incr * 10;
     }
@@ -109,7 +109,7 @@
   }
 
   &__itemQuantity {
-    @include mixin.desktop {
+    @include desktop {
       width: 122px;
     }
   }
@@ -123,7 +123,7 @@
   &__optionLeft {
     margin-right: $padding-incr * 22;
 
-    @include mixin.tablet {
+    @include tablet {
       margin-right: $padding-incr * 10;
     }
   }
@@ -146,12 +146,12 @@
     padding: $padding-incr * 4 $padding-incr * 6;
     background-color: $light-grey;
 
-    @include mixin.tablet {
+    @include tablet {
       justify-content: flex-end;
       padding: $padding-incr * 6 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding-left: $padding-incr * 10;
       padding-right: $padding-incr * 10;
     }
@@ -161,25 +161,25 @@
     text-decoration: none;
     width: 45%;
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
     }
   }
 
   &__cancel {
-    @include mixin.button;
+    @include button;
     border: 1px solid $cloud;
     background-color: $white;
     color: $slate;
     width: 100%;
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
     }
   }
 
   &__submit {
-    @include mixin.button;
+    @include button;
     border: 1px solid $instock-indigo;
     background-color: $instock-indigo;
     color: $white;
@@ -193,11 +193,11 @@
       }
     }
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       &:hover {
         cursor: pointer;
       }

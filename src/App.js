@@ -1,8 +1,6 @@
-
-
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Header from "./components/Header.jsx"; // to be added -> Ashley
+// import Header from "./components/Header/Header.jsx"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 // import WarehouseList from "./components/WarehouseList/WarehouseList.jsx"; // to be added -> Miloan
 // import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx"; // to be added -> Miloan
@@ -15,28 +13,28 @@ import "./App.scss";
 
 export default class App extends Component {
   state = {
-		data: null,
-		itemdata: null,
-	};
+    data: null,
+    itemdata: null,
+  };
   /* Miloan to review if still needed, remove if not needed */
 
-	onChangeHandler = (data) => {
-		this.setState({
-			data: data,
-		});
-	};
+  onChangeHandler = (data) => {
+    this.setState({
+      data: data,
+    });
+  };
 
-	onChangeHandlerItem = (data) => {
-		this.setState({
-			itemdata: data,
-		});
-	};
-  
+  onChangeHandlerItem = (data) => {
+    this.setState({
+      itemdata: data,
+    });
+  };
+
   render() {
     return (
       <BrowserRouter>
         {/* <Header /> */}
-        
+
         <Switch>
           {/* <Route
             path="/warehouses"
@@ -61,6 +59,7 @@ export default class App extends Component {
 
           {/* <Route
             path="/inventory"
+            exact
             render={(routerProps) => <InventoryList {...routerProps} />}
           /> */}
 
@@ -84,4 +83,3 @@ export default class App extends Component {
     );
   }
 }
-

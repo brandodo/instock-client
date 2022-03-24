@@ -14,7 +14,7 @@ export default class AddEditInventory extends Component {
     itemName: "",
     itemDescription: "",
     category: "",
-    status: "",
+    status: "In Stock",
     quantity: 0,
     warehouse: "",
     redirect: false,
@@ -31,7 +31,6 @@ export default class AddEditInventory extends Component {
     });
 
     if (!isAdd) {
-      this.setState({ isAdd: false });
       const { id } = match.params;
       const [currentItem] = temp.filter((item) => item.id === id);
 
@@ -45,6 +44,7 @@ export default class AddEditInventory extends Component {
       } = currentItem;
 
       this.setState({
+        isAdd: false,
         currentItem: currentItem,
         itemName: itemName,
         itemDescription: description,
@@ -62,14 +62,12 @@ export default class AddEditInventory extends Component {
 
   render() {
     const handleChange = (event) => {
-      console.log(event.target.value);
-
       if (
         event.target.name === "quantity" &&
         parseInt(event.target.value) <= 0
       ) {
         return alert(
-          "Quantity must be greater than zero if in stock, or please change status to out of stock!"
+          "Quantity must be greater than 0 if in stock, or please change status to out of stock!"
         );
       }
 
@@ -172,7 +170,7 @@ export default class AddEditInventory extends Component {
               !this.state.itemDescription ||
               !this.state.category ||
               !this.state.warehouse ||
-              (this.state.quantity == 0 && this.state.status === "In Stock")
+              (this.state.quantity <= 0 && this.state.status === "In Stock")
                 ? "inventoryDetails__submit inventoryDetails__submit-disabled"
                 : "inventoryDetails__submit"
             }
@@ -181,7 +179,7 @@ export default class AddEditInventory extends Component {
               !this.state.itemDescription ||
               !this.state.category ||
               !this.state.warehouse ||
-              (this.state.quantity == 0 && this.state.status === "In Stock")
+              (this.state.quantity <= 0 && this.state.status === "In Stock")
                 ? true
                 : false
             }

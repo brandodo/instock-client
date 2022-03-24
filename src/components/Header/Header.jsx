@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as InStockLogo } from "../../assets/images/Logo/InStock-Logo.svg";
+import { ReactComponent as InStockLogo } from "../../assets/images/logo/InStock-Logo.svg";
 import "./Header.scss";
 import "../../components/headerButton/HeaderButton";
 import HeaderButton from "../../components/headerButton/HeaderButton";
@@ -20,11 +20,19 @@ export default function Header(props) {
         />
       </div>
       <div className="header__buttons">
-        <HeaderButton onClick={() => {}}>
+        <HeaderButton
+          onClick={() => {
+            navigate.push("/warehouses");
+          }}
+        >
           {/* TODO: add the route to the onClick! */}
           Warehouses
         </HeaderButton>
-        <HeaderButton onClick={() => {}}>
+        <HeaderButton
+          onClick={() => {
+            navigate.push("/inventory");
+          }}
+        >
           {/* TODO: add the route to the onClick! */}
           Inventory
         </HeaderButton>
