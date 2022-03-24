@@ -3,13 +3,22 @@
 
 .inventoryDetails {
   &__form {
-    margin: 0 $mobile-margins;
+    margin: -72px $mobile-margins $padding-incr * 10;
     padding-top: $padding-incr * 8;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+    background-color: $white;
 
     & hr {
       background: $cloud;
+    }
+
+    @include tablet {
+      margin: -94px $tablet-margins 268px;
+    }
+
+    @include desktop {
+      margin: -94px $desktop-margins 161px;
     }
   }
 
@@ -60,6 +69,16 @@
   &__textInput,
   &__dropdown {
     @include formField;
+  }
+
+  &__textInput {
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
+
+    &-error {
+      border: 2px solid $red;
+    }
   }
 
   &__dropdown {
@@ -188,9 +207,6 @@
 
     &-disabled {
       opacity: 75%;
-      &:hover {
-        cursor: default;
-      }
     }
 
     @include tablet {
@@ -198,7 +214,7 @@
     }
 
     @include desktop {
-      &:hover {
+      &-hover {
         cursor: pointer;
       }
     }

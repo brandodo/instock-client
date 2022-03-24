@@ -5,6 +5,7 @@ import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import axios from "axios";
 import "./AddEditInventory.scss";
+import DelModal from "../Delmodal/DelModal.jsx";
 
 export default class AddEditInventory extends Component {
   state = {
@@ -62,14 +63,6 @@ export default class AddEditInventory extends Component {
 
   render() {
     const handleChange = (event) => {
-      if (
-        event.target.name === "quantity" &&
-        parseInt(event.target.value) <= 0
-      ) {
-        return alert(
-          "Quantity must be greater than 0 if in stock, or please change status to out of stock!"
-        );
-      }
 
       if (event.target.name === "status") {
         event.target.value === "inStock"
@@ -120,11 +113,19 @@ export default class AddEditInventory extends Component {
         });
     };
 
+    const disableButton =
+      !this.state.itemName ||
+      !this.state.itemDescription ||
+      !this.state.category ||
+      !this.state.warehouse ||
+      (this.state.quantity <= 0 && this.state.status === "In Stock");
+
     return (
       <form
         className="inventoryDetails__form"
         onSubmit={(event) => handleForm(event)}
       >
+        <DelModal />
         <div className="inventoryDetails__container">
           <Link to="/inventory">
             <img
@@ -165,24 +166,12 @@ export default class AddEditInventory extends Component {
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
-            className={
-              !this.state.itemName ||
-              !this.state.itemDescription ||
-              !this.state.category ||
-              !this.state.warehouse ||
-              (this.state.quantity <= 0 && this.state.status === "In Stock")
-                ? "inventoryDetails__submit inventoryDetails__submit-disabled"
-                : "inventoryDetails__submit"
-            }
-            disabled={
-              !this.state.itemName ||
-              !this.state.itemDescription ||
-              !this.state.category ||
-              !this.state.warehouse ||
-              (this.state.quantity <= 0 && this.state.status === "In Stock")
-                ? true
-                : false
-            }
+            className={`inventoryDetails__submit ${
+              disableButton
+                ? "inventoryDetails__submit-disabled"
+                : "inventoryDetails__submit-hover"
+            }`}
+            disabled={disableButton ? true : false}
           >
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>

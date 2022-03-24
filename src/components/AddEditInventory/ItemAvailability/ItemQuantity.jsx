@@ -7,7 +7,11 @@ export default function ItemQuantity({ value, handleChange }) {
         Quantity
       </label>
       <input
-        className="inventoryDetails__textInput"
+        className={
+          value <= 0
+            ? "inventoryDetails__textInput inventoryDetails__textInput-error"
+            : "inventoryDetails__textInput"
+        }
         type="number"
         name="quantity"
         value={value}
