@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryOption from "./CategoryOption";
 
-export default function ItemCategory({ value, handleChange, data }) {
+export default function ItemCategory({ value, handleChange, data, isAdd }) {
   // TO DO: write function to populate cateogry drop-down
   // required:
   //   - get prop with inventory data
@@ -13,9 +13,14 @@ export default function ItemCategory({ value, handleChange, data }) {
       className="inventoryDetails__dropdown"
       name="category"
       placeholder="Please select"
-      value={value}
+      value={"" || value}
       onChange={(event) => handleChange(event)}
     >
+      {isAdd && (
+        <option value="" disabled>
+          Please select...
+        </option>
+      )}
       {data
         .filter((val, index, self) => {
           return self.findIndex((v) => v.category === val.category) === index;

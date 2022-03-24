@@ -14,7 +14,7 @@ export default function ItemStatus({ value, handleChange }) {
             type="radio"
             value="inStock"
             onChange={(event) => handleChange(event)}
-            checked={value.toLowerCase() === "in stock"}
+            checked={value === "" || value.toLowerCase() === "in stock"}
           />
           <label className="inventoryDetails__label" htmlFor="inStock">
             In Stock

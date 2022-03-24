@@ -8,7 +8,7 @@ export default function ItemQuantity({ value, handleChange }) {
       </label>
       <input
         className="inventoryDetails__textInput"
-        type="text"
+        type="number"
         name="quantity"
         value={value}
         onChange={(event) => handleChange(event)}

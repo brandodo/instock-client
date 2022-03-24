@@ -6,13 +6,11 @@ import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import axios from "axios";
 import "./AddEditInventory.scss";
 
-// remove after testing
-import inventoryData from "../../temp/inventories.json";
-
 export default class AddEditInventory extends Component {
   state = {
-    isAdd: false, // should this be passed as prop or use state?
+    isAdd: true,
     showQuantity: true,
+    inventoryData: [],
     itemName: "",
     itemDescription: "",
     category: "",
@@ -22,43 +20,76 @@ export default class AddEditInventory extends Component {
     redirect: false,
   };
 
-  componentDidMount() {
-    if (!this.state.isAdd) {
-      const inventoryEdit = inventoryData[inventoryData.length - 1];
+  async componentDidMount() {
+    const { match } = this.props;
+    const isAdd = match.url.includes("add");
+    let temp = [];
+
+    await axios.get("http://localhost:8080/inventory").then((res) => {
+      this.setState({ inventoryData: [...res.data] });
+      temp = [...res.data];
+    });
+
+    if (!isAdd) {
+      this.setState({ isAdd: false });
+      const { id } = match.params;
+      const [currentItem] = temp.filter((item) => item.id === id);
+
+      const {
+        itemName,
+        description,
+        category,
+        status,
+        quantity,
+        warehouseName,
+      } = currentItem;
+
       this.setState({
-        itemName: inventoryEdit.itemName,
-        itemDescription: inventoryEdit.description,
-        category: inventoryEdit.category,
-        status: inventoryEdit.status,
-        quantity: inventoryEdit.quantity,
-        warehouse: inventoryEdit.warehouseName,
+        currentItem: currentItem,
+        itemName: itemName,
+        itemDescription: description,
+        category: category,
+        status: status,
+        quantity: quantity,
+        warehouse: warehouseName,
       });
+
+      if (status.toLowerCase() === "out of stock") {
+        this.setState({ showQuantity: false });
+      }
     }
   }
 
   render() {
-    const displayQty = (status) => {
-      return status === "outStock"
-        ? this.setState({ showQuantity: false })
-        : this.setState({ showQuantity: true });
-    };
-
     const handleChange = (event) => {
+      console.log(event.target.value);
+
+      if (
+        event.target.name === "quantity" &&
+        parseInt(event.target.value) <= 0
+      ) {
+        return alert(
+          "Quantity must be greater than zero if in stock, or please change status to out of stock!"
+        );
+      }
+
       if (event.target.name === "status") {
         event.target.value === "inStock"
-          ? this.setState({ status: "In Stock" })
-          : this.setState({ status: "Out of Stock" });
+          ? this.setState({ status: "In Stock", showQuantity: true })
+          : this.setState({
+              status: "Out of Stock",
+              showQuantity: false,
+              quantity: 0,
+            });
       } else {
         this.setState({ [event.target.name]: event.target.value });
       }
-      console.log(event.target.name, event.target.value);
     };
 
-    const handleForm = () => {
-      const inventoryEdit = inventoryData[inventoryData.length - 1];
-      this.state.isAdd
-        ? addInventory()
-        : editInventory(inventoryEdit.id, inventoryEdit.warehouseID);
+    const handleForm = (event) => {
+      event.preventDefault();
+      const { id } = this.props.match.params;
+      this.state.isAdd ? addInventory() : editInventory(id);
     };
 
     const addInventory = () => {
@@ -76,35 +107,34 @@ export default class AddEditInventory extends Component {
         });
     };
 
-    const editInventory = (inventoryId, warehouseId) => {
+    const editInventory = (inventoryId) => {
       axios
-        .put(
-          `http://localhost:8080/inventory/edit/${inventoryId}/${warehouseId}`,
-          {
-            itemName: this.state.itemName,
-            itemDescription: this.state.itemDescription,
-            category: this.state.category,
-            status: this.state.status,
-            quantity: this.state.quantity,
-            warehouse: this.state.warehouse,
-          }
-        )
+        .put(`http://localhost:8080/inventory/edit/${inventoryId}`, {
+          itemName: this.state.itemName,
+          itemDescription: this.state.itemDescription,
+          category: this.state.category,
+          status: this.state.status,
+          quantity: this.state.quantity,
+          warehouse: this.state.warehouse,
+        })
         .then(() => {
           this.setState({ redirect: true });
         });
     };
 
     return (
-      <form className="inventoryDetails__form">
+      <form
+        className="inventoryDetails__form"
+        onSubmit={(event) => handleForm(event)}
+      >
         <div className="inventoryDetails__container">
-          <Link to="/">
+          <Link to="/inventory">
             <img
               className="inventoryDetails__back"
               src={backArrow}
               alt="back-nav"
             />
           </Link>
-          {/* should this be passed as prop or use state? */}
           <h1 className="inventoryDetails__header">
             {this.state.isAdd
               ? "Add New Inventory Item"
@@ -114,21 +144,22 @@ export default class AddEditInventory extends Component {
         <hr></hr>
         <div className="inventoryDetails__body">
           <ItemDetails
+            isAdd={this.state.isAdd}
             itemName={this.state.itemName}
             itemDescription={this.state.itemDescription}
             category={this.state.category}
             handleChange={handleChange}
-            data={inventoryData}
+            data={this.state.inventoryData}
           />
           <hr></hr>
           <ItemAvailability
+            isAdd={this.state.isAdd}
             showQty={this.state.showQuantity}
-            changeHandler={displayQty}
             status={this.state.status}
             quantity={this.state.quantity}
             warehouse={this.state.warehouse}
             handleChange={handleChange}
-            data={inventoryData}
+            data={this.state.inventoryData}
           />
         </div>
         <div className="inventoryDetails__btn-container">
@@ -136,8 +167,24 @@ export default class AddEditInventory extends Component {
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
-            className="inventoryDetails__submit "
-            onClick={() => handleForm()}
+            className={
+              !this.state.itemName ||
+              !this.state.itemDescription ||
+              !this.state.category ||
+              !this.state.warehouse ||
+              (this.state.quantity == 0 && this.state.status === "In Stock")
+                ? "inventoryDetails__submit inventoryDetails__submit-disabled"
+                : "inventoryDetails__submit"
+            }
+            disabled={
+              !this.state.itemName ||
+              !this.state.itemDescription ||
+              !this.state.category ||
+              !this.state.warehouse ||
+              (this.state.quantity == 0 && this.state.status === "In Stock")
+                ? true
+                : false
+            }
           >
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>
