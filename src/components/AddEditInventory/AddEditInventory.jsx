@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import DelModal from "../Delmodal/DelModal";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
@@ -96,6 +97,7 @@ export default class AddEditInventory extends Component {
 
     return (
       <form className="inventoryDetails__form">
+        <DelModal />
         <div className="inventoryDetails__container">
           <Link to="/">
             <img
