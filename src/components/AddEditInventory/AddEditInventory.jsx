@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import axios from "axios";
 import "./AddEditInventory.scss";
-import DelModal from "../Delmodal/DelModal.jsx";
 
 export default class AddEditInventory extends Component {
   state = {
@@ -19,6 +19,7 @@ export default class AddEditInventory extends Component {
     quantity: 0,
     warehouse: "",
     redirect: false,
+    open: false,
   };
 
   async componentDidMount() {
@@ -63,7 +64,6 @@ export default class AddEditInventory extends Component {
 
   render() {
     const handleChange = (event) => {
-
       if (event.target.name === "status") {
         event.target.value === "inStock"
           ? this.setState({ status: "In Stock", showQuantity: true })
@@ -80,7 +80,11 @@ export default class AddEditInventory extends Component {
     const handleForm = (event) => {
       event.preventDefault();
       const { id } = this.props.match.params;
-      this.state.isAdd ? addInventory() : editInventory(id);
+      this.setState({ open: true });
+      setTimeout(() => {
+        this.state.isAdd ? addInventory() : editInventory(id);
+        this.setState({ open: false, redirect: true });
+      }, 3000);
     };
 
     const addInventory = () => {
@@ -120,12 +124,19 @@ export default class AddEditInventory extends Component {
       !this.state.warehouse ||
       (this.state.quantity <= 0 && this.state.status === "In Stock");
 
+    const TransitionDown = (props) => {
+      return <Slide {...props} direction="down" />;
+    };
+
+    if (this.state.redirect) {
+      return <Redirect to="/inventory" />;
+    }
+
     return (
       <form
         className="inventoryDetails__form"
         onSubmit={(event) => handleForm(event)}
       >
-        <DelModal />
         <div className="inventoryDetails__container">
           <Link to="/inventory">
             <img
@@ -176,6 +187,15 @@ export default class AddEditInventory extends Component {
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>
         </div>
+        <Snackbar
+          open={this.state.open}
+          TransitionComponent={TransitionDown}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Changes saved!
+          </Alert>
+        </Snackbar>
       </form>
     );
   }

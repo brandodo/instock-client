@@ -41,6 +41,15 @@
   &__back {
     padding-top: $padding-incr * 2;
     padding-right: $padding-incr * 3;
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+
+      &:hover {
+        margin-left: -6px;
+        margin-right: 6px;
+      }
+    }
   }
 
   &__header {
@@ -174,6 +183,12 @@
       border: 1px solid $instock-indigo;
       padding: $padding-incr;
     }
+
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &__btn-container {
@@ -213,6 +228,14 @@
     @include tablet {
       width: fit-content;
     }
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: $light-grey;
+      }
+    }
   }
 
   &__submit {
@@ -232,8 +255,12 @@
     }
 
     @include desktop {
+      transition: 0.15s all ease-in-out;
       &-hover {
         cursor: pointer;
+      }
+      &:hover {
+        background-color: $hover;
       }
     }
   }
