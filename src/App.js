@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Header from "./components/Header.jsx"; // to be added -> Ashley
+import Header from "./components/Header/Header";
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 // import WarehouseList from "./components/WarehouseList/WarehouseList.jsx"; // to be added -> Miloan
 // import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx"; // to be added -> Miloan
