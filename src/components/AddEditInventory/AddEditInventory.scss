@@ -258,9 +258,9 @@
       transition: 0.15s all ease-in-out;
       &-hover {
         cursor: pointer;
-      }
-      &:hover {
-        background-color: $hover;
+        &:hover {
+          background-color: $hover;
+        }
       }
     }
   }
