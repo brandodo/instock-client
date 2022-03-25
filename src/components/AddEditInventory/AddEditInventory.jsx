@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
@@ -18,6 +19,7 @@ export default class AddEditInventory extends Component {
     quantity: 0,
     warehouse: "",
     redirect: false,
+    open: false,
   };
 
   async componentDidMount() {
@@ -62,15 +64,6 @@ export default class AddEditInventory extends Component {
 
   render() {
     const handleChange = (event) => {
-      if (
-        event.target.name === "quantity" &&
-        parseInt(event.target.value) <= 0
-      ) {
-        return alert(
-          "Quantity must be greater than 0 if in stock, or please change status to out of stock!"
-        );
-      }
-
       if (event.target.name === "status") {
         event.target.value === "inStock"
           ? this.setState({ status: "In Stock", showQuantity: true })
@@ -87,7 +80,11 @@ export default class AddEditInventory extends Component {
     const handleForm = (event) => {
       event.preventDefault();
       const { id } = this.props.match.params;
-      this.state.isAdd ? addInventory() : editInventory(id);
+      this.setState({ open: true });
+      setTimeout(() => {
+        this.state.isAdd ? addInventory() : editInventory(id);
+        this.setState({ open: false, redirect: true });
+      }, 3000);
     };
 
     const addInventory = () => {
@@ -119,6 +116,21 @@ export default class AddEditInventory extends Component {
           this.setState({ redirect: true });
         });
     };
+
+    const disableButton =
+      !this.state.itemName ||
+      !this.state.itemDescription ||
+      !this.state.category ||
+      !this.state.warehouse ||
+      (this.state.quantity <= 0 && this.state.status === "In Stock");
+
+    const TransitionDown = (props) => {
+      return <Slide {...props} direction="down" />;
+    };
+
+    if (this.state.redirect) {
+      return <Redirect to="/inventory" />;
+    }
 
     return (
       <form
@@ -165,28 +177,25 @@ export default class AddEditInventory extends Component {
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
-            className={
-              !this.state.itemName ||
-              !this.state.itemDescription ||
-              !this.state.category ||
-              !this.state.warehouse ||
-              (this.state.quantity <= 0 && this.state.status === "In Stock")
-                ? "inventoryDetails__submit inventoryDetails__submit-disabled"
-                : "inventoryDetails__submit"
-            }
-            disabled={
-              !this.state.itemName ||
-              !this.state.itemDescription ||
-              !this.state.category ||
-              !this.state.warehouse ||
-              (this.state.quantity <= 0 && this.state.status === "In Stock")
-                ? true
-                : false
-            }
+            className={`inventoryDetails__submit ${
+              disableButton
+                ? "inventoryDetails__submit-disabled"
+                : "inventoryDetails__submit-hover"
+            }`}
+            disabled={disableButton ? true : false}
           >
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>
         </div>
+        <Snackbar
+          open={this.state.open}
+          TransitionComponent={TransitionDown}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Changes saved!
+          </Alert>
+        </Snackbar>
       </form>
     );
   }

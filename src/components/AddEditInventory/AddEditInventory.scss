@@ -3,13 +3,22 @@
 
 .inventoryDetails {
   &__form {
-    margin: 0 $mobile-margins;
+    margin: -72px $mobile-margins $padding-incr * 10;
     padding-top: $padding-incr * 8;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+    background-color: $white;
 
     & hr {
       background: $cloud;
+    }
+
+    @include tablet {
+      margin: -94px $tablet-margins 268px;
+    }
+
+    @include desktop {
+      margin: -94px $desktop-margins 161px;
     }
   }
 
@@ -32,6 +41,15 @@
   &__back {
     padding-top: $padding-incr * 2;
     padding-right: $padding-incr * 3;
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+
+      &:hover {
+        margin-left: -6px;
+        margin-right: 6px;
+      }
+    }
   }
 
   &__header {
@@ -62,6 +80,31 @@
     @include formField;
   }
 
+  &__textInput {
+    &--error {
+      border: 2px solid $red;
+    }
+  }
+
+  &__message {
+    display: none;
+    &--error {
+      display: block;
+      @include errorText;
+      background-image: url("../../assets/images/Icons/error-24px.svg");
+      background-repeat: no-repeat;
+      background-size: 13.33px;
+      background-position: left center;
+      padding-left: $padding-incr * 4;
+    }
+  }
+
+  &__textInput {
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
+  }
+
   &__dropdown {
     appearance: none;
     background-image: url("../../assets/images/Icons/arrow_drop_down-24px.svg");
@@ -79,6 +122,9 @@
     box-sizing: border-box;
     font-family: "Titillium-Reg";
     color: $slate;
+    &--error {
+      border: 2px solid $red;
+    }
   }
 
   &__itemDetails,
@@ -137,6 +183,12 @@
       border: 1px solid $instock-indigo;
       padding: $padding-incr;
     }
+
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &__btn-container {
@@ -176,6 +228,14 @@
     @include tablet {
       width: fit-content;
     }
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: $light-grey;
+      }
+    }
   }
 
   &__submit {
@@ -187,10 +247,7 @@
     width: 45%;
 
     &-disabled {
-      opacity: 75%;
-      &:hover {
-        cursor: default;
-      }
+      opacity: 50%;
     }
 
     @include tablet {
@@ -198,8 +255,12 @@
     }
 
     @include desktop {
-      &:hover {
+      transition: 0.15s all ease-in-out;
+      &-hover {
         cursor: pointer;
+      }
+      &:hover {
+        background-color: $hover;
       }
     }
   }
