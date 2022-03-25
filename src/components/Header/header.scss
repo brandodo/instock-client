@@ -1,25 +1,25 @@
-@use "../../partials/_mixin.scss" as *;
-@use "../../partials/_variables.scss" as *;
+@import "../../partials/_typography.scss";
+@import "../../partials/_mixin.scss";
+@import "../../partials/_variables.scss";
 
 // MOBILE
 
 .header {
   background-color: $graphite;
   margin: 0;
-  height: 200px;
-  padding: $padding-incr * 6 $mobile-margins 0;
+  height: 13rem;
+  // width: 100%;
 
   @include tablet {
-    height: 142px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: $padding-incr * 6 $tablet-margins 0;
+    padding: 1.5em;
   }
 
   @include desktop {
-    padding: $padding-incr * 6 $desktop-margins 0;
+    height: 10rem;
+    padding: 2em 5em;
   }
 
   &__left {
@@ -29,21 +29,16 @@
     @include tablet {
       justify-content: flex-start;
     }
-
-    @include desktop {
-      justify-content: flex-start;
-    }
   }
 
   &__logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: $padding-incr * 8;
+    padding: 1.5rem;
   }
 
   &__buttons {
-    @include labelFont;
     display: flex;
     justify-content: space-around;
 
@@ -62,10 +57,6 @@
 //     margin: 0;
 //     height: 10rem;
 //     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     padding: 1.5em;
 
 //     &__left {
 //       display: flex;

@@ -7,16 +7,21 @@ export default function ItemQuantity({ value, handleChange }) {
         Quantity
       </label>
       <input
-        className={
-          value <= 0
-            ? "inventoryDetails__textInput inventoryDetails__textInput-error"
-            : "inventoryDetails__textInput"
-        }
+        className={`inventoryDetails__textInput ${
+          value === "" ? "inventoryDetails__textInput--error" : ""
+        }`}
         type="number"
         name="quantity"
         value={value}
         onChange={(event) => handleChange(event)}
       />
+      <div
+        className={`inventoryDetails__message ${
+          value === "" ? "inventoryDetails__message--error" : ""
+        }`}
+      >
+        This field is required
+      </div>
     </div>
   );
 }

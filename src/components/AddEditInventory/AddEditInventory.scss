@@ -72,12 +72,27 @@
   }
 
   &__textInput {
+    &--error {
+      border: 2px solid $red;
+    }
+  }
+
+  &__message {
+    display: none;
+    &--error {
+      display: block;
+      @include errorText;
+      background-image: url("../../assets/images/Icons/error-24px.svg");
+      background-repeat: no-repeat;
+      background-size: 13.33px;
+      background-position: left center;
+      padding-left: $padding-incr * 4;
+    }
+  }
+
+  &__textInput {
     &:active {
       border: 1px solid $instock-indigo;
-    }
-
-    &-error {
-      border: 2px solid $red;
     }
   }
 
@@ -98,6 +113,9 @@
     box-sizing: border-box;
     font-family: "Titillium-Reg";
     color: $slate;
+    &--error {
+      border: 2px solid $red;
+    }
   }
 
   &__itemDetails,
@@ -206,7 +224,7 @@
     width: 45%;
 
     &-disabled {
-      opacity: 75%;
+      opacity: 50%;
     }
 
     @include tablet {
