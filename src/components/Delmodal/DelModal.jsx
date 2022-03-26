@@ -5,7 +5,7 @@ const DelModal = (props) => {
 	if (!props.show) {
 		return null;
 	}
-
+	//testing
 	return (
 		<div className="modal-del">
 			<div className="modal-del-content">

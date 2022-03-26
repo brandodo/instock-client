@@ -1,0 +1,303 @@
+@font-face {
+  font-family: "Titillium-Reg";
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Semi";
+  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Bold";
+  src: url("../assets/fonts/TitilliumWeb-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.inventoryDetails__form {
+  margin: -72px 16px 40px;
+  padding-top: 32px;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+  background-color: #ffffff;
+}
+.inventoryDetails__form hr {
+  background: #bdc5d5;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__form {
+    margin: -94px 32px 268px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__form {
+    margin: -94px 130px 161px;
+  }
+}
+.inventoryDetails__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 16px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__container {
+    justify-content: flex-start;
+    padding: 0 32px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__container {
+    padding: 0 40px;
+  }
+}
+.inventoryDetails__back {
+  padding-top: 8px;
+  padding-right: 12px;
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__back {
+    transition: 0.15s all ease-in-out;
+  }
+  .inventoryDetails__back:hover {
+    margin-left: -6px;
+    margin-right: 6px;
+  }
+}
+.inventoryDetails__header {
+  font-family: "Titillium-Semi";
+  font-size: 28px;
+  line-height: 36px;
+  color: #131b2c;
+  padding-bottom: 24px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__body {
+    display: flex;
+    justify-content: space-around;
+  }
+  .inventoryDetails__body > hr {
+    margin: 24px 40px;
+  }
+}
+.inventoryDetails__subHeader {
+  font-family: "Titillium-Semi";
+  font-size: 20px;
+  line-height: 28px;
+  color: #131b2c;
+  padding-bottom: 24px;
+}
+.inventoryDetails__label {
+  font-family: "Titillium-Semi";
+  font-size: 13px;
+  line-height: 20px;
+  color: #131b2c;
+  padding-bottom: 4px;
+}
+.inventoryDetails__textInput, .inventoryDetails__dropdown {
+  font-family: "Titillium-Reg";
+  height: 36px;
+  border: 1px solid #bdc5d5;
+  border-radius: 20px;
+  width: 100%;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  color: #5c667e;
+}
+.inventoryDetails__textInput--error {
+  border: 2px solid #c94515;
+}
+.inventoryDetails__message {
+  display: none;
+}
+.inventoryDetails__message--error {
+  display: block;
+  font-family: "Titillium-Reg";
+  font-size: 12px;
+  line-height: 18px;
+  color: #c94515;
+  background-image: url("../../assets/images/Icons/error-24px.svg");
+  background-repeat: no-repeat;
+  background-size: 13.33px;
+  background-position: left center;
+  padding-left: 16px;
+}
+.inventoryDetails__textInput:active {
+  border: 1px solid #2e66e5;
+}
+.inventoryDetails__dropdown {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("../../assets/images/Icons/arrow_drop_down-24px.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 97%;
+}
+.inventoryDetails__longText {
+  border: 1px solid #bdc5d5;
+  border-radius: 20px;
+  width: 100%;
+  resize: none;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  font-family: "Titillium-Reg";
+  color: #5c667e;
+}
+.inventoryDetails__longText--error {
+  border: 2px solid #c94515;
+}
+.inventoryDetails__itemDetails, .inventoryDetails__itemAvailability {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px 24px 16px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__itemDetails, .inventoryDetails__itemAvailability {
+    width: 100%;
+    padding: 24px 32px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__itemDetails, .inventoryDetails__itemAvailability {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.inventoryDetails__itemName, .inventoryDetails__itemDescription, .inventoryDetails__itemStatus, .inventoryDetails__itemQuantity {
+  padding-bottom: 16px;
+}
+.inventoryDetails__itemStatus {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__itemQuantity {
+    width: 122px;
+  }
+}
+.inventoryDetails__statusOptions {
+  display: flex;
+  text-align: left;
+  justify-content: flex-start;
+}
+.inventoryDetails__optionLeft {
+  margin-right: 88px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__optionLeft {
+    margin-right: 40px;
+  }
+}
+.inventoryDetails__option {
+  margin-right: 8px;
+  background-color: #ffffff;
+  border: 1px solid #bdc5d5;
+}
+.inventoryDetails__option:checked {
+  border: 1px solid #2e66e5;
+  padding: 4px;
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__option:hover {
+    cursor: pointer;
+  }
+}
+.inventoryDetails__btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #f7f8f9;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__btn-container {
+    justify-content: flex-end;
+    padding: 24px 32px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__btn-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+.inventoryDetails__link {
+  text-decoration: none;
+  width: 45%;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__link {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.inventoryDetails__cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: "Titillium-Semi";
+  font-size: 13px;
+  line-height: 20px;
+  border: 1px solid #bdc5d5;
+  background-color: #ffffff;
+  color: #5c667e;
+  width: 100%;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__cancel {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__cancel {
+    transition: 0.15s all ease-in-out;
+  }
+  .inventoryDetails__cancel:hover {
+    cursor: pointer;
+    background-color: #f7f8f9;
+  }
+}
+.inventoryDetails__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: "Titillium-Semi";
+  font-size: 13px;
+  line-height: 20px;
+  border: 1px solid #2e66e5;
+  background-color: #2e66e5;
+  color: #ffffff;
+  margin-left: 16px;
+  width: 45%;
+}
+.inventoryDetails__submit-disabled {
+  opacity: 50%;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .inventoryDetails__submit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .inventoryDetails__submit {
+    transition: 0.15s all ease-in-out;
+  }
+  .inventoryDetails__submit-hover {
+    cursor: pointer;
+  }
+  .inventoryDetails__submit-hover:hover {
+    background-color: #0d40b4;
+  }
+}/*# sourceMappingURL=AddEditInventory.css.map */

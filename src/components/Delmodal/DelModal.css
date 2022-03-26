@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Titillium-Reg";
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Semi";
+  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Bold";
+  src: url("../assets/fonts/TitilliumWeb-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.modal-del {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .modal-del-header {
+    position: relative;
+    top: 3rem;
+  }
+}
+.modal-del-content {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .modal-del-content {
+    height: 262px;
+    width: auto;
+    width: 672px;
+    position: relative;
+  }
+}
+.modal-del__close {
+  position: absolute;
+  right: 21px;
+  top: 21px;
+}
+.modal-del__title {
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 60px;
+  margin-left: 16px;
+  font-size: 28px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .modal-del__title {
+    position: relative;
+    bottom: 3.5rem;
+    margin-top: 40px;
+    margin-left: 64px;
+  }
+}
+.modal-del__content {
+  margin-left: 16px;
+  font-size: 15px;
+  margin-top: 1rem;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .modal-del__content {
+    margin-top: 0px;
+    width: 75%;
+    margin-left: 64px;
+    position: relative;
+    bottom: 1.5rem;
+  }
+}
+.modal-del-footer {
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .modal-del-footer {
+    position: relative;
+    width: 25%;
+    justify-content: flex-end;
+    top: 0.5rem;
+    left: 29rem;
+  }
+}
+.modal-del-footer__delete {
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  color: #ffffff;
+  background: #c94515;
+  border-radius: 20px;
+  width: 163px;
+  height: 36px;
+  border: none;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+}
+.modal-del-footer__delete:hover {
+  background: #232940;
+}
+.modal-del-footer__cancel {
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  background: #ffffff;
+  border: 1px solid #bdc5d5;
+  border-radius: 20px;
+  width: 163px;
+  height: 36px;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+.modal-del-footer__cancel:hover {
+  border: 1px solid #2e66e5;
+  color: #2e66e5;
+}/*# sourceMappingURL=DelModal.css.map */

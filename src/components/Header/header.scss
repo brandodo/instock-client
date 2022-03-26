@@ -3,58 +3,58 @@
 @import "../../partials/_variables.scss";
 
 .header {
-  background-color: $graphite;
-  margin: 0;
+	background-color: $graphite;
+	margin: 0;
 
-  @include mobile {
-    height: 13rem;
-    padding: 0px 16px;
-  }
+	@include mobile {
+		height: 13rem;
+		padding: 0px 16px;
+	}
 
-  @include tablet {
-    height: 10rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 32px;
-  }
+	@include tablet {
+		height: 10rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 32px;
+	}
 
-  @include desktop {
-    height: 10rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 38.39px 130px;
-  }
+	@include desktop {
+		height: 10rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 38.39px 130px;
+	}
 
-  &__logo {
-    @media (max-width: $mobile-breakpoint) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-    }
-  }
-  &__left {
-    @include mobile {
-      display: flex;
-      justify-content: center;
-    }
-    @media (min-width: $mobile-breakpoint) {
-      display: flex;
-      justify-content: flex-start;
-    }
-  }
+	&__logo {
+		@media (max-width: $mobile-breakpoint) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1.5rem;
+		}
+	}
+	&__left {
+		@include mobile {
+			display: flex;
+			justify-content: center;
+		}
+		@media (min-width: $mobile-breakpoint) {
+			display: flex;
+			justify-content: flex-start;
+		}
+	}
 
-  &__buttons {
-    @include mobile {
-      display: flex;
-      justify-content: space-around;
-    }
-    @media (min-width: $mobile-breakpoint) {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1em;
-    }
-  }
+	&__buttons {
+		@include mobile {
+			display: flex;
+			justify-content: space-around;
+		}
+		@media (min-width: $mobile-breakpoint) {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1em;
+		}
+	}
 }
