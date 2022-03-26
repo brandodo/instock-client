@@ -1,7 +1,7 @@
 import React from "react";
 import WarehouseOption from "./WarehouseOption";
 
-export default function ItemWarehouse({ value, handleChange, data }) {
+export default function ItemWarehouse({ value, handleChange, data, isAdd }) {
   // TO DO: write function to populate warehouse drop-down
   // required:
   //   - get prop with inventory data
@@ -13,9 +13,14 @@ export default function ItemWarehouse({ value, handleChange, data }) {
       className="inventoryDetails__dropdown"
       name="warehouse"
       placeholder="Please select"
-      value={value}
+      value={"" || value}
       onChange={(event) => handleChange(event)}
     >
+      {isAdd && (
+        <option value="" disabled>
+          Please select...
+        </option>
+      )}
       {data
         .filter((val, index, self) => {
           return (

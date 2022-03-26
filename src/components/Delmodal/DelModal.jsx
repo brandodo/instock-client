@@ -1,5 +1,5 @@
 import "./DelModal.scss";
-import Close from "../../assets/images/icon/close-24px.svg";
+import Close from "../../assets/images/Icons/close-24px.svg";
 
 const DelModal = (props) => {
 	if (!props.show) {

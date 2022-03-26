@@ -1,15 +1,24 @@
-@use "../../partials/mixin";
+@use "../../partials/mixin" as *;
 @use "../../partials/variables" as *;
 
 .inventoryDetails {
   &__form {
-    margin: 0 $mobile-margins;
+    margin: -72px $mobile-margins $padding-incr * 10;
     padding-top: $padding-incr * 8;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+    background-color: $white;
 
     & hr {
       background: $cloud;
+    }
+
+    @include tablet {
+      margin: -94px $tablet-margins 268px;
+    }
+
+    @include desktop {
+      margin: -94px $desktop-margins 161px;
     }
   }
 
@@ -19,12 +28,12 @@
     align-items: flex-start;
     padding: 0 $padding-incr * 4;
 
-    @include mixin.tablet {
+    @include tablet {
       justify-content: flex-start;
       padding: 0 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding: 0 $padding-incr * 10;
     }
   }
@@ -32,14 +41,23 @@
   &__back {
     padding-top: $padding-incr * 2;
     padding-right: $padding-incr * 3;
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+
+      &:hover {
+        margin-left: -6px;
+        margin-right: 6px;
+      }
+    }
   }
 
   &__header {
-    @include mixin.headerFont;
+    @include headerFont;
   }
 
   &__body {
-    @include mixin.tablet {
+    @include tablet {
       display: flex;
       justify-content: space-around;
 
@@ -50,16 +68,41 @@
   }
 
   &__subHeader {
-    @include mixin.subheaderFont;
+    @include subheaderFont;
   }
 
   &__label {
-    @include mixin.labelFont;
+    @include labelFont;
   }
 
   &__textInput,
   &__dropdown {
-    @include mixin.formField;
+    @include formField;
+  }
+
+  &__textInput {
+    &--error {
+      border: 2px solid $red;
+    }
+  }
+
+  &__message {
+    display: none;
+    &--error {
+      display: block;
+      @include errorText;
+      background-image: url("../../assets/images/Icons/error-24px.svg");
+      background-repeat: no-repeat;
+      background-size: 13.33px;
+      background-position: left center;
+      padding-left: $padding-incr * 4;
+    }
+  }
+
+  &__textInput {
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
   }
 
   &__dropdown {
@@ -79,18 +122,21 @@
     box-sizing: border-box;
     font-family: "Titillium-Reg";
     color: $slate;
+    &--error {
+      border: 2px solid $red;
+    }
   }
 
   &__itemDetails,
   &__itemAvailability {
-    @include mixin.formSpacing;
+    @include formSpacing;
 
-    @include mixin.tablet {
+    @include tablet {
       width: 100%;
       padding: $padding-incr * 6 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding-left: $padding-incr * 10;
       padding-right: $padding-incr * 10;
     }
@@ -109,7 +155,7 @@
   }
 
   &__itemQuantity {
-    @include mixin.desktop {
+    @include desktop {
       width: 122px;
     }
   }
@@ -123,7 +169,7 @@
   &__optionLeft {
     margin-right: $padding-incr * 22;
 
-    @include mixin.tablet {
+    @include tablet {
       margin-right: $padding-incr * 10;
     }
   }
@@ -137,6 +183,12 @@
       border: 1px solid $instock-indigo;
       padding: $padding-incr;
     }
+
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &__btn-container {
@@ -146,12 +198,12 @@
     padding: $padding-incr * 4 $padding-incr * 6;
     background-color: $light-grey;
 
-    @include mixin.tablet {
+    @include tablet {
       justify-content: flex-end;
       padding: $padding-incr * 6 $padding-incr * 8;
     }
 
-    @include mixin.desktop {
+    @include desktop {
       padding-left: $padding-incr * 10;
       padding-right: $padding-incr * 10;
     }
@@ -161,25 +213,33 @@
     text-decoration: none;
     width: 45%;
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
     }
   }
 
   &__cancel {
-    @include mixin.button;
+    @include button;
     border: 1px solid $cloud;
     background-color: $white;
     color: $slate;
     width: 100%;
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
+    }
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: $light-grey;
+      }
     }
   }
 
   &__submit {
-    @include mixin.button;
+    @include button;
     border: 1px solid $instock-indigo;
     background-color: $instock-indigo;
     color: $white;
@@ -187,16 +247,20 @@
     width: 45%;
 
     &-disabled {
-      opacity: 75%;
+      opacity: 50%;
     }
 
-    @include mixin.tablet {
+    @include tablet {
       width: fit-content;
     }
 
-    @include mixin.desktop {
-      &:hover {
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &-hover {
         cursor: pointer;
+        &:hover {
+          background-color: $hover;
+        }
       }
     }
   }
