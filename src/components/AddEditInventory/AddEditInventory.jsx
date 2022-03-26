@@ -1,64 +1,90 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import axios from "axios";
 import "./AddEditInventory.scss";
 
-// remove after testing
-import inventoryData from "../../temp/inventories.json";
-
 export default class AddEditInventory extends Component {
   state = {
-    isAdd: true, // should this be passed as prop or use state?
+    isAdd: true,
     showQuantity: true,
+    inventoryData: [],
     itemName: "",
     itemDescription: "",
     category: "",
-    status: "",
+    status: "In Stock",
     quantity: 0,
     warehouse: "",
     redirect: false,
+    open: false,
   };
 
-  componentDidMount() {
-    if (!this.state.isAdd) {
-      const inventoryEdit = inventoryData[inventoryData.length - 1];
+  async componentDidMount() {
+    const { match } = this.props;
+    const isAdd = match.url.includes("add");
+    let temp = [];
+
+    await axios.get("http://localhost:8080/inventory").then((res) => {
+      this.setState({ inventoryData: [...res.data] });
+      temp = [...res.data];
+    });
+
+    if (!isAdd) {
+      const { id } = match.params;
+      const [currentItem] = temp.filter((item) => item.id === id);
+
+      const {
+        itemName,
+        description,
+        category,
+        status,
+        quantity,
+        warehouseName,
+      } = currentItem;
+
       this.setState({
-        itemName: inventoryEdit.itemName,
-        itemDescription: inventoryEdit.description,
-        category: inventoryEdit.category,
-        status: inventoryEdit.status,
-        quantity: inventoryEdit.quantity,
-        warehouse: inventoryEdit.warehouseName,
+        isAdd: false,
+        currentItem: currentItem,
+        itemName: itemName,
+        itemDescription: description,
+        category: category,
+        status: status,
+        quantity: quantity,
+        warehouse: warehouseName,
       });
+
+      if (status.toLowerCase() === "out of stock") {
+        this.setState({ showQuantity: false });
+      }
     }
   }
 
   render() {
-    const displayQty = (status) => {
-      return status === "outStock"
-        ? this.setState({ showQuantity: false })
-        : this.setState({ showQuantity: true });
-    };
-
     const handleChange = (event) => {
       if (event.target.name === "status") {
         event.target.value === "inStock"
-          ? this.setState({ status: "In Stock" })
-          : this.setState({ status: "Out of Stock" });
+          ? this.setState({ status: "In Stock", showQuantity: true })
+          : this.setState({
+              status: "Out of Stock",
+              showQuantity: false,
+              quantity: 0,
+            });
       } else {
         this.setState({ [event.target.name]: event.target.value });
       }
-      console.log(event.target.name, event.target.value);
     };
 
-    const handleForm = () => {
-      const inventoryEdit = inventoryData[inventoryData.length - 1];
-      this.state.isAdd
-        ? addInventory()
-        : editInventory(inventoryEdit.id, inventoryEdit.warehouseID);
+    const handleForm = (event) => {
+      event.preventDefault();
+      const { id } = this.props.match.params;
+      this.setState({ open: true });
+      setTimeout(() => {
+        this.state.isAdd ? addInventory() : editInventory(id);
+        this.setState({ open: false, redirect: true });
+      }, 2000);
     };
 
     const addInventory = () => {
@@ -76,35 +102,49 @@ export default class AddEditInventory extends Component {
         });
     };
 
-    const editInventory = (inventoryId, warehouseId) => {
+    const editInventory = (inventoryId) => {
       axios
-        .put(
-          `http://localhost:8080/inventory/edit/${inventoryId}/${warehouseId}`,
-          {
-            itemName: this.state.itemName,
-            itemDescription: this.state.itemDescription,
-            category: this.state.category,
-            status: this.state.status,
-            quantity: this.state.quantity,
-            warehouse: this.state.warehouse,
-          }
-        )
+        .put(`http://localhost:8080/inventory/edit/${inventoryId}`, {
+          itemName: this.state.itemName,
+          itemDescription: this.state.itemDescription,
+          category: this.state.category,
+          status: this.state.status,
+          quantity: this.state.quantity,
+          warehouse: this.state.warehouse,
+        })
         .then(() => {
           this.setState({ redirect: true });
         });
     };
 
+    const disableButton =
+      !this.state.itemName ||
+      !this.state.itemDescription ||
+      !this.state.category ||
+      !this.state.warehouse ||
+      (this.state.quantity <= 0 && this.state.status === "In Stock");
+
+    const TransitionDown = (props) => {
+      return <Slide {...props} direction="down" />;
+    };
+
+    if (this.state.redirect) {
+      return <Redirect to="/inventory" />;
+    }
+
     return (
-      <form className="inventoryDetails__form">
+      <form
+        className="inventoryDetails__form"
+        onSubmit={(event) => handleForm(event)}
+      >
         <div className="inventoryDetails__container">
-          <Link to="/">
+          <Link to="/inventory">
             <img
               className="inventoryDetails__back"
               src={backArrow}
               alt="back-nav"
             />
           </Link>
-          {/* should this be passed as prop or use state? */}
           <h1 className="inventoryDetails__header">
             {this.state.isAdd
               ? "Add New Inventory Item"
@@ -114,21 +154,22 @@ export default class AddEditInventory extends Component {
         <hr></hr>
         <div className="inventoryDetails__body">
           <ItemDetails
+            isAdd={this.state.isAdd}
             itemName={this.state.itemName}
             itemDescription={this.state.itemDescription}
             category={this.state.category}
             handleChange={handleChange}
-            data={inventoryData}
+            data={this.state.inventoryData}
           />
           <hr></hr>
           <ItemAvailability
+            isAdd={this.state.isAdd}
             showQty={this.state.showQuantity}
-            changeHandler={displayQty}
             status={this.state.status}
             quantity={this.state.quantity}
             warehouse={this.state.warehouse}
             handleChange={handleChange}
-            data={inventoryData}
+            data={this.state.inventoryData}
           />
         </div>
         <div className="inventoryDetails__btn-container">
@@ -136,27 +177,25 @@ export default class AddEditInventory extends Component {
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
-            className={
-              this.state.itemName &&
-              this.state.itemDescription &&
-              this.state.status &&
-              this.state.quantity
-                ? "inventoryDetails__submit"
-                : "inventoryDetails__submit inventoryDetails__submit-disabled"
-            }
-            onClick={() => handleForm()}
-            disabled={
-              this.state.itemName &&
-              this.state.itemDescription &&
-              this.state.status &&
-              this.state.quantity
-                ? false
-                : true
-            }
+            className={`inventoryDetails__submit ${
+              disableButton
+                ? "inventoryDetails__submit-disabled"
+                : "inventoryDetails__submit-hover"
+            }`}
+            disabled={disableButton ? true : false}
           >
             {this.state.isAdd ? "+ Add Item" : "Save"}
           </button>
         </div>
+        <Snackbar
+          open={this.state.open}
+          TransitionComponent={TransitionDown}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Changes saved!
+          </Alert>
+        </Snackbar>
       </form>
     );
   }

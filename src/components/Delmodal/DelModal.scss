@@ -39,7 +39,7 @@
 	}
 
 	&__title {
-		@include demi;
+		@include semi;
 		margin-top: 60px;
 		margin-left: 16px;
 		font-size: 28px;
@@ -79,7 +79,7 @@
 			left: 29rem;
 		}
 		&__delete {
-			@include demi;
+			@include semi;
 			color: $white;
 			background: #c94515;
 			border-radius: 20px;
@@ -95,7 +95,7 @@
 		}
 
 		&__cancel {
-			@include demi;
+			@include semi;
 			background: $white;
 			border: 1px solid $cloud;
 			border-radius: 20px;

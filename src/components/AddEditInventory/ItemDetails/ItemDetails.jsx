@@ -8,14 +8,21 @@ export default function ItemDetails({
   itemDescription,
   category,
   handleChange,
-  data
+  data,
+  isAdd,
+  F,
 }) {
   return (
     <div className="inventoryDetails__itemDetails">
       <h2 className="inventoryDetails__subHeader">Item Details</h2>
       <ItemName value={itemName} handleChange={handleChange} />
       <ItemDescription value={itemDescription} handleChange={handleChange} />
-      <ItemCategory value={category} handleChange={handleChange} data={data}/>
+      <ItemCategory
+        value={category}
+        handleChange={handleChange}
+        data={data}
+        isAdd={isAdd}
+      />
     </div>
   );
 }

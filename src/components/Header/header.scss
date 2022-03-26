@@ -2,79 +2,56 @@
 @import "../../partials/_mixin.scss";
 @import "../../partials/_variables.scss";
 
-// MOBILE
+.header {
+	background-color: $graphite;
+	margin: 0;
 
-@media (max-width: $mobile-breakpoint) {
-	.header {
-		background-color: $graphite;
-		margin: 0;
+	@include mobile {
 		height: 13rem;
-		width: 100%;
+		padding: 0px 16px;
+	}
 
-		&__left {
-			display: flex;
-			justify-content: center;
-		}
+	@include tablet {
+		height: 10rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 32px;
+	}
 
-		&__logo {
+	@include desktop {
+		height: 10rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 38.39px 130px;
+	}
+
+	&__logo {
+		@media (max-width: $mobile-breakpoint) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			padding: 1.5rem;
 		}
+	}
+	&__left {
+		@include mobile {
+			display: flex;
+			justify-content: center;
+		}
+		@media (min-width: $mobile-breakpoint) {
+			display: flex;
+			justify-content: flex-start;
+		}
+	}
 
-		&__buttons {
+	&__buttons {
+		@include mobile {
 			display: flex;
 			justify-content: space-around;
 		}
-	}
-}
-
-// TABLET
-
-@media (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint) {
-	.header {
-		background-color: $graphite;
-		margin: 0;
-		height: 10rem;
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 1.5em;
-
-		&__left {
-			display: flex;
-			justify-content: flex-start;
-		}
-
-		&__buttons {
-			display: flex;
-			justify-content: flex-end;
-			gap: 1em;
-		}
-	}
-}
-
-// DESKTOP
-
-@media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
-	.header {
-		background-color: $graphite;
-		margin: 0;
-		height: 10rem;
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 2em 5em;
-
-		&__left {
-			display: flex;
-			justify-content: flex-start;
-		}
-
-		&__buttons {
+		@media (min-width: $mobile-breakpoint) {
 			display: flex;
 			justify-content: flex-end;
 			gap: 1em;

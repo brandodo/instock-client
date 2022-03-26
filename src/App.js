@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./components/Header.jsx";
+import Header from "./components/Header/Header.jsx"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
@@ -62,6 +62,7 @@ export default class App extends Component {
 
 					{/* <Route
             path="/inventory"
+            exact
             render={(routerProps) => <InventoryList {...routerProps} />}
           /> */}
 

@@ -1,13 +1,13 @@
 import React from "react";
-import { ReactComponent as InStockLogo } from "../../assets/images/Logo/InStock-Logo.svg";
+import { ReactComponent as InStockLogo } from "../../assets/images/logo/InStock-Logo.svg";
 import "./Header.scss";
 import "../../components/headerButton/HeaderButton";
 import HeaderButton from "../../components/headerButton/HeaderButton";
 
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Header(props) {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <div className="header">
@@ -15,7 +15,7 @@ export default function Header(props) {
         <InStockLogo
           className="header__logo"
           onClick={() => {
-            navigate.push("/");
+            history.push("/");
           }}
         />
       </div>
