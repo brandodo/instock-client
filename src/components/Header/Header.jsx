@@ -4,15 +4,20 @@ import "./Header.scss";
 import "../../components/headerButton/HeaderButton";
 import HeaderButton from "../../components/headerButton/HeaderButton";
 
-// import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Header(props) {
-  // const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <div className="header">
       <div className="header__left">
-        <InStockLogo className="header__logo" />
+        <InStockLogo
+          className="header__logo"
+          onClick={() => {
+            history.push("/");
+          }}
+        />
       </div>
       <div className="header__buttons">
         <HeaderButton onClick={() => {}}>
