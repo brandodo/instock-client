@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as InStockLogo } from "../../assets/images/logo/InStock-Logo.svg";
 import "./Header.scss";
 import "../../components/headerButton/HeaderButton";
-import HeaderButton from "../../components/headerButton/HeaderButton";
+import HeaderButton from "../headerButton/HeaderButton";
 
 import { useHistory } from "react-router-dom";
 
