@@ -11,78 +11,78 @@ import AddEditInventory from "./components/AddEditInventory/AddEditInventory.jsx
 import "./App.scss";
 
 export default class App extends Component {
-	state = {
-		data: null,
-		itemdata: null,
-	};
-	/* Miloan to review if still needed, remove if not needed */
+  state = {
+    data: null,
+    itemdata: null,
+  };
+  /* Miloan to review if still needed, remove if not needed */
 
-	onChangeHandler = (data) => {
-		this.setState({
-			data: data,
-		});
-	};
+  onChangeHandler = (data) => {
+    this.setState({
+      data: data,
+    });
+  };
 
-	onChangeHandlerItem = (data) => {
-		this.setState({
-			itemdata: data,
-		});
-	};
+  onChangeHandlerItem = (data) => {
+    this.setState({
+      itemdata: data,
+    });
+  };
 
-	render() {
-		return (
-			<BrowserRouter>
-				{/* <Header /> */}
+  render() {
+    return (
+      <BrowserRouter>
+        {/* <Header /> */}
 
-				<Switch>
-					{
-						<Route
-							path="/warehouses"
-							exact
-							render={(routerProps) => <WarehouseList {...routerProps} />}
-						/>
-					}
+        <Switch>
+          {
+            <Route
+              path="/warehouses"
+              exact
+              render={(routerProps) => <WarehouseList {...routerProps} />}
+            />
+          }
 
-					{
-						<Route
-							path="/warehouses/:id"
-							render={(routerProps) => <WarehouseDetails {...routerProps} />}
-						/>
-					}
+          {
+            <Route
+              path="/warehouses/:id"
+              render={(routerProps) => <WarehouseDetails {...routerProps} />}
+            />
+          }
 
-					{/* <Route
+          {/* <Route
             path="/warehouses/edit/:id"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 
-					{/* <Route
+          {/* <Route
             path="/warehouses/add"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 
-					{/* <Route
+          {/* <Route
             path="/inventory"
             exact
             render={(routerProps) => <InventoryList {...routerProps} />}
           /> */}
 
-					{/* <Route
+          {/* <Route
             path="/inventory/:id"
             render={(routerProps) => <InventoryDetails {...routerProps} />}
           /> */}
 
-					<Route
-						path="/inventory/add"
-						render={(routerProps) => <AddEditInventory {...routerProps} />}
-					/>
+          <Route
+            path="/inventory/add"
+            render={(routerProps) => <AddEditInventory {...routerProps} />}
+          />
 
-					<Route
-						path="/inventory/edit/:id"
-						render={(routerProps) => <AddEditInventory {...routerProps} />}
-					/>
-				</Switch>
-				<HeroFooter />
-			</BrowserRouter>
-		);
-	}
+          <Route
+            path="/inventory/edit/:id"
+            render={(routerProps) => <AddEditInventory {...routerProps} />}
+          />
+        </Switch>
+        <HeroFooter />
+      </BrowserRouter>
+    );
+  }
 }
