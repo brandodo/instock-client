@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Header from "./components/Header/Header.jsx"; // to be added -> Ashley
+import Header from "./components/Header/Header"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
-import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import Warehouses from "./components/Warehouses/Warehouses";
 // import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx"; // to be added -> Renish
 // import InventoryList from "./components/InventoryList/InventoryList.jsx"; // to be added -> Ashley
 // import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Renish
-import AddEditInventory from "./components/AddEditInventory/AddEditInventory.jsx";
+import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
 import "./App.scss";
 
 export default class App extends Component {
@@ -49,6 +50,25 @@ export default class App extends Component {
 							render={(routerProps) => <WarehouseDetails {...routerProps} />}
 						/>
 					}
+					<Route
+						exact
+						path="/warehouses"
+						render={(props) => (
+							<Warehouses
+								{...props}
+								data={this.state.data}
+								onChangeHandler={this.onChangeHandler}
+							/>
+						)}
+					/>
+
+					<Route exact path="/" component={Warehouses} />
+					{
+						<Route
+							path="/warehouses/:id"
+							render={(routerProps) => <WarehouseDetails {...routerProps} />}
+						/>
+					}
 
 					{/* <Route
             path="/warehouses/edit/:id"
@@ -57,6 +77,11 @@ export default class App extends Component {
 
 					{/* <Route
             path="/warehouses/add"
+            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
+            /> }
+
+					{/* <Route
+            path="/warehouses/:id/edit"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 

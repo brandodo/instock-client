@@ -2,19 +2,19 @@
 @use "./typography";
 
 @mixin mobile {
-  @media (max-width: $mobile-breakpoint) and (min-width: 320px) {
+  @media (min-width: 0px) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint) {
+  @media (min-width: $tablet-breakpoint) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+  @media (min-width: $desktop-breakpoint) {
     @content;
   }
 }
@@ -28,7 +28,7 @@
 @mixin semi {
   font-family: "Titillium-Semi";
   font-weight: 600;
-  font-style: normal; 
+  font-style: normal;
 }
 
 @mixin bold {

@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "Titillium-Reg";
+  src: url("../assets/fonts/TitilliumWeb-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Semi";
+  src: url("../assets/fonts/TitilliumWeb-SemiBold.ttf") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium-Bold";
+  src: url("../assets/fonts/TitilliumWeb-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.warehouse {
+  padding-top: 1rem;
+  position: relative;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  z-index: 1;
+  top: -4rem;
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse {
+    top: -8rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .warehouse {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+}
+.warehouse-topbar {
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  color: #232940;
+  display: none;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f7f8f9;
+  font-size: 11px;
+  position: relative;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse-topbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .warehouse-topbar {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+}
+.warehouse-topbar__sort {
+  width: 1rem;
+  position: relative;
+  top: 0.2rem;
+  left: 0.5rem;
+}
+.warehouse-topbar__address {
+  position: absolute;
+  right: 67%;
+}
+.warehouse-topbar__contact-name {
+  position: absolute;
+  right: 48%;
+}
+.warehouse-topbar__contact-information {
+  position: absolute;
+  right: 20%;
+}
+.warehouse__nav {
+  padding: 0 1rem;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__nav {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .warehouse__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__nav-right {
+    display: flex;
+    align-items: center;
+  }
+}
+.warehouse__title {
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  padding: 0 1rem 1rem;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 0;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__title {
+    padding-left: 0;
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+.warehouse__form {
+  position: relative;
+}
+.warehouse__form-search {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #bdc5d5;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.warehouse__form-search:focus {
+  border: 1px solid #2e66e5;
+  outline: 0;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__form-search {
+    padding-right: 1.5rem;
+    margin-right: 1rem;
+    width: -webkit-fill-available;
+  }
+}
+@media (min-width: 767px) and (max-width: 1279px) {
+  .warehouse__form-search {
+    padding-right: 6.5rem;
+    width: -webkit-fill-available;
+  }
+}
+.warehouse__form-search::-moz-placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium";
+  font-weight: 400;
+  font-style: normal;
+}
+.warehouse__form-search:-ms-input-placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium";
+  font-weight: 400;
+  font-style: normal;
+}
+.warehouse__form-search::placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium";
+  font-weight: 400;
+  font-style: normal;
+}
+.warehouse__form-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__form-search-icon {
+    right: 30px;
+  }
+}
+.warehouse__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+  background: #2e66e6;
+  border-radius: 20px;
+  margin: 1rem 0;
+  border: none;
+}
+.warehouse__button:hover {
+  background: #232940;
+}
+@media (min-width: 479px) and (max-width: 767px) {
+  .warehouse__button {
+    width: none;
+    padding: 0 1rem;
+    max-width: 180px;
+  }
+}
+.warehouse__button-text {
+  width: 127px;
+  height: 20px;
+  font-family: "Titillium";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #ffffff;
+}/*# sourceMappingURL=Warehouses.css.map */
