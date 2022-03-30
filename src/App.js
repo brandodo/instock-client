@@ -33,7 +33,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<Header />
+				{/* <Header /> */}
 
 				<Switch>
 					{
@@ -63,6 +63,17 @@ export default class App extends Component {
 					/>
 
 					<Route exact path="/" component={Warehouses} />
+					{
+						<Route
+							path="/warehouses/:id"
+							render={(routerProps) => <WarehouseDetails {...routerProps} />}
+						/>
+					}
+
+					{/* <Route
+            path="/warehouses/edit/:id"
+            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
+          /> */}
 
 					{/* <Route
             path="/warehouses/add"
