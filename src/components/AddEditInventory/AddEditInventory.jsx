@@ -4,6 +4,7 @@ import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
+import { API_URL } from "../../utils/utils";
 import axios from "axios";
 import "./AddEditInventory.scss";
 
@@ -27,7 +28,7 @@ export default class AddEditInventory extends Component {
     const isAdd = match.url.includes("add");
     let temp = [];
 
-    await axios.get("http://localhost:8080/inventory").then((res) => {
+    await axios.get(`${API_URL}/inventory`).then((res) => {
       this.setState({ inventoryData: [...res.data] });
       temp = [...res.data];
     });
@@ -138,7 +139,13 @@ export default class AddEditInventory extends Component {
         onSubmit={(event) => handleForm(event)}
       >
         <div className="inventoryDetails__container">
-          <Link to="/inventory">
+          <Link
+            to={
+              this.state.isAdd
+                ? "/inventory"
+                : `/warehouses/${this.state.currentItem.warehouseID}`
+            }
+          >
             <img
               className="inventoryDetails__back"
               src={backArrow}
@@ -173,7 +180,14 @@ export default class AddEditInventory extends Component {
           />
         </div>
         <div className="inventoryDetails__btn-container">
-          <Link to="/inventory" className="inventoryDetails__link ">
+          <Link
+            to={
+              this.state.isAdd
+                ? "/inventory"
+                : `/warehouses/${this.state.currentItem.warehouseID}`
+            }
+            className="inventoryDetails__link "
+          >
             <button className="inventoryDetails__cancel">Cancel</button>
           </Link>
           <button
