@@ -53,7 +53,7 @@
   top: 21px;
 }
 .modal-del__title {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   margin-top: 60px;
@@ -99,7 +99,7 @@
   }
 }
 .modal-del-footer__delete {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   color: #ffffff;
@@ -115,7 +115,7 @@
   background: #232940;
 }
 .modal-del-footer__cancel {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   background: #ffffff;

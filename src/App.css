@@ -16,11 +16,8 @@
   font-weight: 700;
   font-style: normal;
 }
-body {
-  font-family: "Titillium", sans-serif;
-}
-
 * {
+  font-family: "Titillium-Reg", sans-serif;
   padding: 0;
   margin: 0;
 }/*# sourceMappingURL=App.css.map */
