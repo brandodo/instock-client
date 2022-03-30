@@ -78,7 +78,7 @@
   padding-right: 0.5rem;
 }
 .warehousedetails-topbar {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   color: #232940;
@@ -120,7 +120,7 @@
   right: 50%;
 }
 .warehousedetails__title {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 28px;
@@ -176,7 +176,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -185,7 +185,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -194,7 +194,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -232,7 +232,7 @@
   .warehousedetails__button-text {
     display: flex;
     height: 20px;
-    font-family: "Titillium";
+    font-family: "Titillium-Semi";
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
@@ -259,7 +259,7 @@
   }
 }
 .warehousedetails__specifics-location {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 11px;
@@ -274,7 +274,7 @@
   }
 }
 .warehousedetails__specifics-address {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -289,7 +289,7 @@
   }
 }
 .warehousedetails__specifics-country {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -324,7 +324,7 @@
   }
 }
 .warehousedetails__specifics-contact {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 11px;
@@ -340,7 +340,7 @@
   }
 }
 .warehousedetails__specifics-contact-name {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -355,7 +355,7 @@
   }
 }
 .warehousedetails__specifics-contact-position {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -370,7 +370,7 @@
   }
 }
 .warehousedetails__specifics-contact-information {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 11px;
@@ -386,7 +386,7 @@
   }
 }
 .warehousedetails__specifics-contact-number {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -401,7 +401,7 @@
   }
 }
 .warehousedetails__specifics-contact-email {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -499,7 +499,7 @@
   width: 7rem;
 }
 .warehousedetails__subheader {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 11px;
@@ -515,7 +515,7 @@
 .warehousedetails__itemname {
   margin: 0;
   text-decoration: none;
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 13px;
@@ -530,7 +530,7 @@
   }
 }
 .warehousedetails__category-details {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -543,7 +543,7 @@
   }
 }
 .warehousedetails__warehouse-info {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -552,7 +552,7 @@
   margin-top: 0.3rem;
 }
 .warehousedetails__warehouse-status {
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -567,7 +567,7 @@
   }
 }
 .warehousedetails__warehouse-status--outstock {
-  font-family: "Titillium";
+  font-family: "Titillium-Bold";
   font-weight: 700;
   font-style: normal;
   background-color: rgba(201, 69, 21, 0.07);
@@ -584,7 +584,7 @@
   }
 }
 .warehousedetails__warehouse-status--instock {
-  font-family: "Titillium";
+  font-family: "Titillium-Bold";
   font-weight: 700;
   font-style: normal;
   background-color: rgba(21, 132, 99, 0.07);
