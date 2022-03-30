@@ -22,6 +22,7 @@ class WarehouseList extends React.Component {
       show: false,
     });
   };
+
   onTrashHandler = (e) => {
     this.setState({
       show: true,
@@ -29,6 +30,7 @@ class WarehouseList extends React.Component {
       warehouseName: e.target.name,
     });
   };
+
   onDeleteHandler = (itemid) => {
     axios
       .delete(`${API_URL}/warehouses/${itemid}/warehouse`)
@@ -65,9 +67,9 @@ class WarehouseList extends React.Component {
                   <div className="warehouse__information-location">
                     <h4 className="warehouse__subheader">WAREHOUSE</h4>
                     <Link
-                      onClick={() => {
-                        this.props.onChangeHandler(warehouse);
-                      }}
+                      // onClick={() => {
+                      //   this.props.onChangeHandler(warehouse);
+                      // }}
                       to={`warehouses/${warehouse.id}`}
                       className="warehouse__location"
                     >

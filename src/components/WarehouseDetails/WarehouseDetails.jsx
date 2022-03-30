@@ -32,6 +32,7 @@ class WarehouseDetails extends React.Component {
       itemName: e.target.name,
     });
   };
+
   onDeleteHandler = (itemid) => {
     axios
       .delete(`${API_URL}/inventory/${itemid}/item`)
@@ -84,11 +85,7 @@ class WarehouseDetails extends React.Component {
 
   render() {
     let stockDecide;
-    if (
-      //   this.state.loaded === false ||
-      !this.state.selectedWarehouse ||
-      !this.state.inventory
-    ) {
+    if (!this.state.selectedWarehouse || !this.state.inventory) {
       return <main className="load-screen">Loading...</main>;
     }
     console.log(this.state.selectedWarehouse && this.state.inventory);
