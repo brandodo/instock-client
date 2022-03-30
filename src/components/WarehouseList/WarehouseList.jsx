@@ -31,16 +31,20 @@ class WarehouseList extends React.Component {
     });
   };
 
-  onDeleteHandler = (itemid) => {
-    axios
-      .delete(`${API_URL}/warehouses/${itemid}/warehouse`)
+  onDeleteHandler = async (warehouseId) => {
+    await axios
+      .delete(`${API_URL}/warehouses/edit/${warehouseId}`)
       .then((response) => {
         this.setState({
-          allWarehouses: response.data,
           show: false,
         });
       })
       .catch((err) => console.log("error!", err));
+
+    await axios
+      .get(`${API_URL}/warehouses`)
+      .then((res) => this.setState({ allWarehouses: res.data }))
+      .catch((err) => console.log(err));
   };
 
   componentDidMount() {
@@ -67,9 +71,6 @@ class WarehouseList extends React.Component {
                   <div className="warehouse__information-location">
                     <h4 className="warehouse__subheader">WAREHOUSE</h4>
                     <Link
-                      // onClick={() => {
-                      //   this.props.onChangeHandler(warehouse);
-                      // }}
                       to={`warehouses/${warehouse.id}`}
                       className="warehouse__location"
                     >
@@ -134,11 +135,9 @@ class WarehouseList extends React.Component {
         <DelModal
           show={this.state.show}
           onCloseHandler={this.onCloseHandler}
-          onTrashHandler={this.onTrashHandler}
           onDeleteHandler={this.onDeleteHandler}
-          itemId={this.state.warehouseId}
-          name="Warehouse"
-          itemName={this.state.warehouseName}
+          warehouseId={this.state.warehouseId}
+          warehouseName={this.state.warehouseName}
         />
       </>
     );

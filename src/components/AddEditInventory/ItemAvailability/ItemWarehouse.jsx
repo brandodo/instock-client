@@ -2,12 +2,6 @@ import React from "react";
 import WarehouseOption from "./WarehouseOption";
 
 export default function ItemWarehouse({ value, handleChange, data, isAdd }) {
-  // TO DO: write function to populate warehouse drop-down
-  // required:
-  //   - get prop with inventory data
-  //   - filter out unique warehouses
-  //   - map through array to create options list
-
   const warehouseList = (
     <select
       className="inventoryDetails__dropdown"

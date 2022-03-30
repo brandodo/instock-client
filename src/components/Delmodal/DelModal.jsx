@@ -1,11 +1,19 @@
 import "./DelModal.scss";
 import Close from "../../assets/images/Icons/close-24px.svg";
 
-const DelModal = (props) => {
-  if (!props.show) {
+const DelModal = ({
+  show,
+  onCloseHandler,
+  onDeleteHandler,
+  itemId,
+  itemName,
+  warehouseId,
+  warehouseName,
+}) => {
+  if (!show) {
     return null;
   }
-  //testing
+
   return (
     <div className="modal-del">
       <div className="modal-del-content">
@@ -13,27 +21,34 @@ const DelModal = (props) => {
           className="modal-del__close"
           src={Close}
           alt="x mark to close"
-          onClick={props.onCloseHandler}
+          onClick={onCloseHandler}
         />
 
         <div className="modal-del-header">
           <h4 className="modal-del__title">
-            Delete {props.itemName} {props.name} Item?
+            Delete{" "}
+            {itemName
+              ? `${itemName} inventory item?`
+              : `${warehouseName} warehouse?`}
           </h4>
           <div className="modal-del__content">
-            Please confirm that you'd like to delete {props.itemName} from the
-            {props.id} inventory list. You won't be able to undo this action.
+            Please confirm that you'd like to delete{" "}
+            {itemName ? itemName : warehouseName} from the{" "}
+            {itemName ? "inventory list." : "list of warehouses."} You won't be
+            able to undo this action.
           </div>
           <div className="modal-del-footer">
             <button
               className="modal-del-footer__cancel"
-              onClick={props.onCloseHandler}
+              onClick={onCloseHandler}
             >
               Cancel
             </button>
             <button
               className="modal-del-footer__delete"
-              onClick={() => props.onDeleteHandler(props.itemId)}
+              onClick={() =>
+                itemId ? onDeleteHandler(itemId) : onDeleteHandler(warehouseId)
+              }
             >
               Delete
             </button>

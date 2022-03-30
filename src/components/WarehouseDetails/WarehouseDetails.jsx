@@ -25,6 +25,7 @@ class WarehouseDetails extends React.Component {
       show: false,
     });
   };
+
   onTrashHandler = (e) => {
     this.setState({
       show: true,
@@ -33,18 +34,27 @@ class WarehouseDetails extends React.Component {
     });
   };
 
-  onDeleteHandler = (itemid) => {
-    axios
-      .delete(`${API_URL}/inventory/${itemid}/item`)
+  onDeleteHandler = async (itemid) => {
+    const warehouseId = this.props.match.params.id;
+
+    await axios
+      .delete(`${API_URL}/inventory/${itemid}`)
       .then((response) => {
         this.setState({
-          inventory: response.data,
           loaded: true,
           show: false,
         });
       })
       .catch((err) => console.log("error!", err));
+
+    await axios
+      .get(`${API_URL}/warehouses/${warehouseId}/inventory`)
+      .then((res) => {
+        this.setState({ inventory: res.data });
+      })
+      .catch((err) => console.log(err));
   };
+
   componentDidMount() {
     let id = this.props.match.params.id;
     let data = this.props.datas;
@@ -52,7 +62,6 @@ class WarehouseDetails extends React.Component {
       .get(`${API_URL}/warehouses/${id}`)
       .then(async (res) => {
         data = res.data;
-        console.log(data);
         this.setState({ selectedWarehouse: data });
         axios.get(`${API_URL}/warehouses/${id}/inventory`).then((res) => {
           this.setState({
@@ -66,19 +75,6 @@ class WarehouseDetails extends React.Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // if (
-    //   this.props.data !== this.state.selectedWarehouse &&
-    //   this.props.data !== null
-    // ) {
-    //   this.setState({
-    //     selectedWarehouse: this.props.data,
-    //   });
-    //   console.log(this.props.data);
-    //   console.log("pass 1");
-    // }
-  }
-
   updatedData = () => {
     this.setState({ isUpdated: true });
   };
@@ -88,7 +84,7 @@ class WarehouseDetails extends React.Component {
     if (!this.state.selectedWarehouse || !this.state.inventory) {
       return <main className="load-screen">Loading...</main>;
     }
-    console.log(this.state.selectedWarehouse && this.state.inventory);
+
     return (
       <section className="warehousedetails">
         <div className="warehousedetails__nav">
@@ -271,11 +267,13 @@ class WarehouseDetails extends React.Component {
                     alt="trashcan"
                     onClick={this.onTrashHandler}
                   />
-                  <img
-                    className="warehousedetails__action-edit"
-                    src={Edit}
-                    alt="trashcan"
-                  />
+                  <Link to={`/inventory/edit/${item.id}`}>
+                    <img
+                      className="warehousedetails__action-edit"
+                      src={Edit}
+                      alt="edit"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -284,10 +282,8 @@ class WarehouseDetails extends React.Component {
         <DelModal
           show={this.state.show}
           onCloseHandler={this.onCloseHandler}
-          onTrashHandler={this.onTrashHandler}
           onDeleteHandler={this.onDeleteHandler}
           itemId={this.state.itemId}
-          name="Inventory"
           itemName={this.state.itemName}
         />
       </section>
