@@ -67,7 +67,7 @@ export default class App extends Component {
 					{/* <Route
             path="/warehouses/add"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          /> }
+            /> }
 
 					{/* <Route
             path="/warehouses/:id/edit"
