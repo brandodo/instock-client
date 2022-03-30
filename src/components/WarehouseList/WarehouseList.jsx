@@ -1,12 +1,12 @@
 import React from "react";
-import Trash from "../../assets/images/icon/delete_outline-24px.svg";
-import Edit from "../../assets/images/icon/edit-24px.svg";
+import Trash from "../../assets/images/Icons/delete_outline-24px.svg";
+import Edit from "../../assets/images/Icons/edit-24px.svg";
 import { API_URL } from "../../utils/utils.js";
 import axios from "axios";
 import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
 import DelModal from "../DelModal/DelModal";
-import Chevron from "../../assets//images/icon/chevron_right-24px.svg";
+import Chevron from "../../assets//images/Icons/chevron_right-24px.svg";
 import { get } from "lodash";
 
 class WarehouseList extends React.Component {

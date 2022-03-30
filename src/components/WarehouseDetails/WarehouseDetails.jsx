@@ -1,11 +1,11 @@
 import React from "react";
 import DelModal from "../DelModal/DelModal";
 import "./WarehouseDetails.scss";
-import Arrow from "../../assets/images/icons/arrow_back-24px.svg";
-import Trash from "../../assets/images/icon/delete_outline-24px.svg";
-import Edit from "../../assets/images/icon/edit-24px.svg";
-import Chevron from "../../assets/images/icon/chevron_right-24px.svg";
-import Sort from "../../assets/images/icon/sort-24px.svg";
+import Arrow from "../../assets/images/Icons/arrow_back-24px.svg";
+import Trash from "../../assets/images/Icons/delete_outline-24px.svg";
+import Edit from "../../assets/images/Icons/edit-24px.svg";
+import Chevron from "../../assets/images/Icons/chevron_right-24px.svg";
+import Sort from "../../assets/images/Icons/sort-24px.svg";
 import axios from "axios";
 import { API_URL } from "../../utils/utils";
 import { Link } from "react-router-dom";
