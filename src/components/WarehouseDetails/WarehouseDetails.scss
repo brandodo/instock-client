@@ -22,7 +22,6 @@
   }
   &__chevron {
     position: relative;
-    top: 0.5rem;
     left: 0.5rem;
     @include tablet {
       top: 0px;
@@ -30,7 +29,7 @@
   }
 
   &__nav {
-    padding: 0 1rem;
+    padding: $padding-incr * 3 $padding-incr * 6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,11 +38,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem 0.2rem;
-    }
-
-    @include desktop {
-      padding: 0 2rem 0.2rem;
+      padding: $padding-incr * 6 2rem $padding-incr * 4;
     }
 
     &-wrapper {
@@ -384,6 +379,13 @@
         padding-left: 2rem;
       }
     }
+
+    &-item {
+      @include tablet {
+        width: 50%;
+      }
+    }
+
     &-status {
       @include tablet {
         position: absolute;
@@ -452,6 +454,11 @@
   &__itemname {
     margin: 0;
     text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+
     @include semi;
     font-size: 13px;
     line-height: 20px;
@@ -527,7 +534,6 @@
     display: flex;
     justify-content: space-between;
     @include tablet {
-      padding: 0 1rem;
       position: relative;
       right: 2rem;
     }

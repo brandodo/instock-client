@@ -13,6 +13,7 @@ export default class AddEditInventory extends Component {
     isAdd: true,
     showQuantity: true,
     inventoryData: [],
+    warehouseData: [],
     itemName: "",
     itemDescription: "",
     category: "",
@@ -31,6 +32,10 @@ export default class AddEditInventory extends Component {
     await axios.get(`${API_URL}/inventory`).then((res) => {
       this.setState({ inventoryData: [...res.data] });
       temp = [...res.data];
+    });
+
+    await axios.get(`${API_URL}/warehouses`).then((res) => {
+      this.setState({ warehouseData: res.data });
     });
 
     if (!isAdd) {
@@ -90,7 +95,7 @@ export default class AddEditInventory extends Component {
 
     const addInventory = () => {
       axios
-        .post("http://localhost:8080/inventory/add", {
+        .post(`${API_URL}/inventory/add`, {
           itemName: this.state.itemName,
           itemDescription: this.state.itemDescription,
           category: this.state.category,
@@ -105,7 +110,7 @@ export default class AddEditInventory extends Component {
 
     const editInventory = (inventoryId) => {
       axios
-        .put(`http://localhost:8080/inventory/edit/${inventoryId}`, {
+        .put(`${API_URL}/inventory/edit/${inventoryId}`, {
           itemName: this.state.itemName,
           itemDescription: this.state.itemDescription,
           category: this.state.category,
@@ -130,7 +135,15 @@ export default class AddEditInventory extends Component {
     };
 
     if (this.state.redirect) {
-      return <Redirect to="/inventory" />;
+      return (
+        <Redirect
+          to={
+            this.state.isAdd
+              ? "/inventory"
+              : `/warehouses/${this.state.currentItem.warehouseID}`
+          }
+        />
+      );
     }
 
     return (
@@ -176,7 +189,7 @@ export default class AddEditInventory extends Component {
             quantity={this.state.quantity}
             warehouse={this.state.warehouse}
             handleChange={handleChange}
-            data={this.state.inventoryData}
+            data={this.state.warehouseData}
           />
         </div>
         <div className="inventoryDetails__btn-container">
@@ -207,7 +220,7 @@ export default class AddEditInventory extends Component {
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
         >
           <Alert severity="success" sx={{ width: "100%" }}>
-            Changes saved!
+            Changes saved! You will be redirected in 2 seconds...
           </Alert>
         </Snackbar>
       </form>

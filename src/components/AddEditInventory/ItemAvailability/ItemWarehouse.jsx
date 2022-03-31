@@ -15,16 +15,11 @@ export default function ItemWarehouse({ value, handleChange, data, isAdd }) {
           Please select...
         </option>
       )}
-      {data
-        .filter((val, index, self) => {
-          return (
-            self.findIndex((v) => v.warehouseName === val.warehouseName) ===
-            index
-          );
-        })
-        .map((item) => {
-          return <WarehouseOption key={item.id} value={item.warehouseName} />;
-        })}
+      {data.map((warehouse) => {
+        return (
+          <WarehouseOption key={warehouse.id} value={warehouse.name} />
+        );
+      })}
     </select>
   );
   return (
