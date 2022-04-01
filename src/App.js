@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/Header/Header"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
@@ -35,6 +35,7 @@ export default class App extends Component {
         <Header />
 
         <Switch>
+          <Redirect exact from="/" to="/warehouses" />
           <Route
             exact
             path="/warehouses"
