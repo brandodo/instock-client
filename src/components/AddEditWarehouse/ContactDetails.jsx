@@ -17,10 +17,20 @@ export default function ContactDetails({ handleChange, data }) {
         <TextField handleChange={handleChange} name="position" value={position}>
           Position
         </TextField>
-        <TextField handleChange={handleChange} name="phone" value={phone}>
+        <TextField
+          handleChange={handleChange}
+          name="phone"
+          value={phone}
+          placeholder={"Phone Number (e.g. +1 (249) 093-4839)"}
+        >
           Phone Number
         </TextField>
-        <TextField handleChange={handleChange} name="email" value={email}>
+        <TextField
+          handleChange={handleChange}
+          name="email"
+          value={email}
+          placeholder={"Email (e.g. johndoe@gmail.com)"}
+        >
           Email
         </TextField>
       </div>

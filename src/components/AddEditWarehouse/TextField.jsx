@@ -5,6 +5,7 @@ export default function WarehouseFIeld({
   children,
   handleChange,
   value,
+  placeholder,
 }) {
   const [error, setError] = useState(false);
 
@@ -20,7 +21,7 @@ export default function WarehouseFIeld({
         type="text"
         name={name}
         value={value}
-        placeholder={children}
+        placeholder={placeholder || children}
         onChange={(event) => {
           if (!event.target.value) {
             setError(true);

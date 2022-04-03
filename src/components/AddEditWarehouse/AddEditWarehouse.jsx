@@ -60,12 +60,22 @@ export default class AddEditWarehouse extends Component {
 
     const handleForm = (event) => {
       event.preventDefault();
+      checkPhoneNumber(event.target.phone.value);
+      return;
 
       this.setState({ open: true });
 
       setTimeout(() => {
         this.state.isAdd ? addWarehouse() : editWarehouse(id);
       }, 2000);
+    };
+
+    const checkPhoneNumber = (phone) => {
+      const phoneRegex = new RegExp("^/+d/");
+      console.log(phone);
+      const validPhone = phoneRegex.exec(phone);  
+
+      console.log(validPhone);
     };
 
     const addWarehouse = () => {
