@@ -21,6 +21,7 @@ export default class AddEditWarehouse extends Component {
     email: "",
     redirect: false,
     open: false,
+    formatError: false,
   };
 
   componentDidMount() {
@@ -53,29 +54,30 @@ export default class AddEditWarehouse extends Component {
   render() {
     const { id } = this.props.match.params;
 
-    const handleChange = (event) => {
-      this.setState({ [event.target.name]: event.target.value });
-      console.log(event.target.value);
+    const handleChange = (event, valid) => {
+      const name = event.target.name;
+
+      if ((name === "phone" || name === "email") && !valid) {
+        this.setState({
+          formatError: true,
+          [event.target.name]: event.target.value,
+        });
+      } else {
+        this.setState({
+          formatError: false,
+          [event.target.name]: event.target.value,
+        });
+      }
     };
 
     const handleForm = (event) => {
       event.preventDefault();
-      checkPhoneNumber(event.target.phone.value);
-      return;
 
       this.setState({ open: true });
 
       setTimeout(() => {
         this.state.isAdd ? addWarehouse() : editWarehouse(id);
       }, 2000);
-    };
-
-    const checkPhoneNumber = (phone) => {
-      const phoneRegex = new RegExp("^/+d/");
-      console.log(phone);
-      const validPhone = phoneRegex.exec(phone);  
-
-      console.log(validPhone);
     };
 
     const addWarehouse = () => {
@@ -162,11 +164,11 @@ export default class AddEditWarehouse extends Component {
           </Link>
           <button
             className={`warehouseDetails__submit ${
-              disableButton
+              disableButton || this.state.formatError
                 ? "warehouseDetails__submit-disabled"
                 : "warehouseDetails__submit-hover"
             }`}
-            disabled={disableButton ? true : false}
+            disabled={disableButton || this.state.formatError ? true : false}
           >
             {this.state.isAdd ? "+ Add Warehouse" : "Save"}
           </button>
