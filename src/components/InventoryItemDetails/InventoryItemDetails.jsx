@@ -13,7 +13,6 @@ class InventoryItemDetails extends React.Component {
   };
   componentDidMount() {
     let id = this.props.match.params.id;
-
     axios
       .get(`${API_URL}/inventory/${id}`)
       .then((resp) => {
@@ -44,7 +43,7 @@ class InventoryItemDetails extends React.Component {
 
     return (
       <>
-        <div className="inventorydetails__top">
+        <div className="inventorydetails">
           <div className="inventorydetails__nav">
             <div className="inventorydetails__nav-wrapper">
               <Link to="/inventories">
@@ -57,51 +56,58 @@ class InventoryItemDetails extends React.Component {
               </Link>
               <h1 className="inventorydetails__title">{inventory.itemName}</h1>
             </div>
+
+            <form className="inventorydetails__form">
+              <label
+                className="inventorydetails__form-label"
+                htmlFor="text"
+              ></label>
+              <Link to={`/inventory/edit/${inventory.id}`}>
+                <button className="inventorydetails__button" type="submit">
+                  <img
+                    className="inventorydetails__form-edit-icon"
+                    src={Edit}
+                    alt="search-icon"
+                  />
+                  <h3 className="inventorydetails__button-text">Edit</h3>
+                </button>
+              </Link>
+            </form>
           </div>
 
-          <form className="inventorydetails__form">
-            <label
-              className="inventorydetails__form-label"
-              htmlFor="text"
-            ></label>
-            <Link to={`/inventory/edit/${inventory.id}`}>
-              <button className="inventorydetails__button" type="submit">
-                <img
-                  className="inventorydetails__form-edit-icon"
-                  src={Edit}
-                  alt="search-icon"
-                />
-                <h3 className="inventorydetails__button-text">Edit</h3>
-              </button>
-            </Link>
-          </form>
+          <div className="inventorydetails__bottom">
+            <div className="inventorydetails__column-left">
+              <h4 className="inventorydetails__header">Item Description:</h4>
+              <p className="inventorydetails__specifics">
+                {inventory.description}
+              </p>
+              <h4 className="inventorydetails__header">Category:</h4>
+              <p className="inventorydetails__specifics">
+                {inventory.category}
+              </p>
+            </div>
+
+            <div className="inventorydetails__column-right">
+              <div className="column-right--row">
+                <div className="status">
+                  <h4 className="inventorydetails__header">Status:</h4>
+                  <p className={stockDecide}> {inventory.status}</p>
+                </div>
+
+                <div className="quantity">
+                  <h4 className="inventorydetails__header">Quantity:</h4>
+                  <p className="inventorydetails__inventory-info">
+                    {inventory.quantity}
+                  </p>
+                </div>
+              </div>
+              <h4 className="inventorydetails__header">Warehouse:</h4>
+              <p className="inventorydetails__specifics">
+                {inventory.warehouseName}
+              </p>
+            </div>
+          </div>
         </div>
-
-        <section>
-          <div className="inventorydetails__column-left">
-            <h4 className="inventorydetails__header">Item Description:</h4>
-            <p className="inventorydetails__specifics">
-              {inventory.description}
-            </p>
-            <h4 className="inventorydetails__header">Category:</h4>
-            <p className="inventorydetails__specifics">{inventory.category}</p>
-          </div>
-
-          <div className="inventorydetails__column-right">
-            <h4 className="inventorydetails__header">Status:</h4>
-            <p className={stockDecide}> {inventory.status}</p>
-
-            <h4 className="inventorydetails__header">Quantity:</h4>
-            <p className="inventorydetails__inventory-info">
-              {inventory.quantity}
-            </p>
-
-            <h4 className="inventorydetails__header">Warehouse:</h4>
-            <p className="inventorydetails__specifics">
-              {inventory.warehouseName}
-            </p>
-          </div>
-        </section>
       </>
     );
   }

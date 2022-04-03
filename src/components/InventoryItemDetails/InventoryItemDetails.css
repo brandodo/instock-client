@@ -15,4 +15,349 @@
   src: url("../assets/fonts/TitilliumWeb-Bold.ttf") format("woff2");
   font-weight: 700;
   font-style: normal;
-}/*# sourceMappingURL=InventoryDetails.css.map */
+}
+.inventorydetails {
+  position: relative;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  z-index: 1;
+  top: -4rem;
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+}
+@media (min-width: 767px) {
+  .inventorydetails {
+    top: -8rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+@media (min-width: 1279px) {
+  .inventorydetails {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+}
+.inventorydetails__chevron {
+  position: relative;
+  left: 0.5rem;
+}
+@media (min-width: 767px) {
+  .inventorydetails__chevron {
+    top: 0px;
+  }
+}
+.inventorydetails__nav {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #bdc5d5;
+}
+@media (min-width: 767px) {
+  .inventorydetails__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 2rem 16px;
+  }
+}
+.inventorydetails__nav-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inventorydetails__image {
+  margin-top: 0.5rem;
+  padding-right: 0.5rem;
+}
+.inventorydetails-topbar {
+  font-family: "Titillium-Semi";
+  font-weight: 600;
+  font-style: normal;
+  color: #232940;
+  display: none;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f7f8f9;
+  font-size: 11px;
+}
+@media (min-width: 767px) {
+  .inventorydetails-topbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+}
+.inventorydetails-topbar__sort {
+  width: 1rem;
+  position: relative;
+  top: 0.2rem;
+  left: 0.5rem;
+}
+.inventorydetails-topbar__warehouse {
+  position: absolute;
+  right: 20%;
+}
+.inventorydetails-topbar__category {
+  position: absolute;
+  right: 68%;
+}
+.inventorydetails-topbar__qty {
+  position: absolute;
+  right: 25%;
+}
+.inventorydetails-topbar__status {
+  position: absolute;
+  right: 50%;
+}
+.inventorydetails__title {
+  font-family: "Titillium-Semi";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 0;
+}
+@media (min-width: 767px) {
+  .inventorydetails__title {
+    font-size: 32px;
+    line-height: 40px;
+    padding: 0;
+  }
+}
+@media (min-width: 1279px) {
+  .inventorydetails__title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+.inventorydetails__form {
+  position: relative;
+}
+@media (min-width: 767px) {
+  .inventorydetails__form {
+    display: flex;
+  }
+}
+.inventorydetails__form-edit-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(201deg) brightness(300%) contrast(100%);
+}
+@media (min-width: 767px) {
+  .inventorydetails__form-edit-icon {
+    position: absolute;
+    left: 13px;
+    height: 18px;
+  }
+}
+.inventorydetails__form-search {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #bdc5d5;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+@media (min-width: 767px) {
+  .inventorydetails__form-search {
+    position: relative;
+    margin-right: 1rem;
+  }
+}
+.inventorydetails__form-search::-moz-placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium-Reg";
+  font-weight: 400;
+  font-style: normal;
+}
+.inventorydetails__form-search:-ms-input-placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium-Reg";
+  font-weight: 400;
+  font-style: normal;
+}
+.inventorydetails__form-search::placeholder {
+  padding-left: 15px;
+  color: #5c667e;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Titillium-Reg";
+  font-weight: 400;
+  font-style: normal;
+}
+.inventorydetails__form-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+}
+@media (min-width: 767px) {
+  .inventorydetails__form-search-icon {
+    right: 10.5rem;
+  }
+}
+.inventorydetails__button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #2e66e6;
+  border-radius: 20px;
+  margin: 1rem 0;
+  border: none;
+}
+@media (min-width: 767px) {
+  .inventorydetails__button {
+    width: 75px;
+  }
+}
+.inventorydetails__button-text {
+  display: none;
+}
+@media (min-width: 767px) {
+  .inventorydetails__button-text {
+    display: flex;
+    height: 20px;
+    font-family: "Titillium-Semi";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #ffffff;
+    position: absolute;
+    right: 15px;
+  }
+}
+.inventorydetails__bottom {
+  padding: 12px 24px;
+}
+@media (min-width: 767px) {
+  .inventorydetails__bottom {
+    display: flex;
+    max-width: 80%;
+  }
+}
+.inventorydetails__bottom p {
+  font-size: 13px;
+  line-height: 20px;
+}
+@media (min-width: 767px) {
+  .inventorydetails__bottom p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.inventorydetails__bottom h4 {
+  text-transform: uppercase;
+  color: #5c667e;
+  font-size: small;
+  margin: 16px 0px 4px 0px;
+}
+.inventorydetails__column-left {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 767px) {
+  .inventorydetails__column-left {
+    padding: 1rem 2rem;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+    border-right: 1px solid #bdc5d5;
+  }
+}
+.inventorydetails__column-left-location {
+  font-family: "Titillium-Semi";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 11px;
+  line-height: 16px;
+  color: #5c667e;
+  margin: 0.5rem 0;
+}
+@media (min-width: 767px) {
+  .inventorydetails__column-left-location {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+.inventorydetails__column-right {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 767px) {
+  .inventorydetails__column-right {
+    padding: 1rem 2rem;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+.inventorydetails .column-right--row {
+  display: flex;
+  flex-direction: row;
+  gap: 25%;
+}
+@media (min-width: 767px) {
+  .inventorydetails .column-right--row {
+    gap: 50%;
+  }
+}
+.inventorydetails .column-right--row p {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.inventorydetails__inventory-status {
+  font-family: "Titillium-Reg";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0;
+  margin-top: 0.3rem;
+}
+@media (min-width: 767px) {
+  .inventorydetails__inventory-status {
+    position: relative;
+    left: 1rem;
+  }
+}
+.inventorydetails__inventory-status--outstock {
+  font-family: "Titillium-Bold";
+  font-weight: 700;
+  font-style: normal;
+  background-color: rgba(201, 69, 21, 0.07);
+  color: #c94515;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+@media (min-width: 767px) {
+  .inventorydetails__inventory-status--outstock {
+    min-width: 5rem;
+  }
+}
+.inventorydetails__inventory-status--instock {
+  font-family: "Titillium-Bold";
+  font-weight: 700;
+  font-style: normal;
+  background-color: rgba(21, 132, 99, 0.07);
+  color: #158463;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 20px;
+}/*# sourceMappingURL=InventoryItemDetails.css.map */
