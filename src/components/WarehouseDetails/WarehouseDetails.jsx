@@ -106,7 +106,7 @@ class WarehouseDetails extends React.Component {
               className="warehousedetails__form-label"
               htmlFor="text"
             ></label>
-            <Link to={`/warehouses/edit/${this.state.selectedWarehouse.id}`}>
+            <Link to={`/edit/warehouses/${this.state.selectedWarehouse.id}`}>
               <button className="warehousedetails__button" type="submit">
                 <img
                   className="warehousedetails__form-edit-icon"
@@ -267,7 +267,7 @@ class WarehouseDetails extends React.Component {
                     alt="trashcan"
                     onClick={this.onTrashHandler}
                   />
-                  <Link to={`/inventory/edit/${item.id}`}>
+                  <Link to={`/edit/inventory/${item.id}`}>
                     <img
                       className="warehousedetails__action-edit"
                       src={Edit}

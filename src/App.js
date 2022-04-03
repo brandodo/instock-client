@@ -4,7 +4,7 @@ import Header from "./components/Header/Header"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
-// import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx"; // to be added -> Renish
+import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx"; // to be added -> Renish
 // import InventoryList from "./components/InventoryList/InventoryList.jsx"; // to be added -> Ashley
 // import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Renish
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
@@ -36,6 +36,7 @@ export default class App extends Component {
 
         <Switch>
           <Redirect exact from="/" to="/warehouses" />
+
           <Route
             exact
             path="/warehouses"
@@ -54,24 +55,14 @@ export default class App extends Component {
           />
 
           <Route
-            path="/warehouses/:id"
-            render={(routerProps) => <WarehouseDetails {...routerProps} />}
+            path="/add/warehouses"
+            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           />
 
-          {/* <Route
-            path="/warehouses/edit/:id"
+          <Route
+            path="/edit/warehouses/:id"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          /> */}
-
-          {/* <Route
-            path="/warehouses/add"
-            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-		  /> */}
-
-          {/* <Route
-            path="/warehouses/:id/edit"
-            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          /> */}
+          />
 
           {/* <Route
             path="/inventory"
@@ -85,12 +76,11 @@ export default class App extends Component {
           /> */}
 
           <Route
-            path="/inventory/add"
+            path="/add/inventory"
             render={(routerProps) => <AddEditInventory {...routerProps} />}
           />
-
           <Route
-            path="/inventory/edit/:id"
+            path="/edit/inventory/:id"
             render={(routerProps) => <AddEditInventory {...routerProps} />}
           />
         </Switch>

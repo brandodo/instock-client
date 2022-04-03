@@ -121,7 +121,7 @@ class WarehouseList extends React.Component {
                   src={Trash}
                   alt="trashcan"
                 />
-                <Link to={`warehouses/${warehouse.id}/edit`}>
+                <Link to={`/edit/warehouses/${warehouse.id}`}>
                   <img
                     className="warehouse__actions-edit"
                     src={Edit}
