@@ -5,6 +5,7 @@ import WarehouseList from "../WarehouseList/WarehouseList";
 import Sort from "../../assets/images/Icons/sort-24px.svg";
 import DelModal from "../DelModal/DelModal";
 import { Link } from "react-router-dom";
+
 const Warehouses = (props) => {
   return (
     <section className="warehouse">
