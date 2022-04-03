@@ -24,7 +24,7 @@ const Warehouses = (props) => {
               alt="search-icon"
             />
           </form>
-          <Link to="/warehouses/add" style={{ textDecoration: "none" }}>
+          <Link to="/add/warehouses" style={{ textDecoration: "none" }}>
             <button className="warehouse__button" type="submit">
               <h3 className="warehouse__button-text">+Add New Warehouse</h3>{" "}
             </button>

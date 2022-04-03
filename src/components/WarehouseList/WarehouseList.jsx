@@ -33,7 +33,7 @@ class WarehouseList extends React.Component {
 
   onDeleteHandler = async (warehouseId) => {
     await axios
-      .delete(`${API_URL}/warehouses/edit/${warehouseId}`)
+      .delete(`${API_URL}/edit/warehouses/${warehouseId}`)
       .then((response) => {
         this.setState({
           show: false,
@@ -121,7 +121,7 @@ class WarehouseList extends React.Component {
                   src={Trash}
                   alt="trashcan"
                 />
-                <Link to={`warehouses/${warehouse.id}/edit`}>
+                <Link to={`/edit/warehouses/${warehouse.id}`}>
                   <img
                     className="warehouse__actions-edit"
                     src={Edit}

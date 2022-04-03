@@ -36,6 +36,7 @@ export default class App extends Component {
 
         <Switch>
           <Redirect exact from="/" to="/warehouses" />
+
           <Route
             exact
             path="/warehouses"
@@ -53,23 +54,13 @@ export default class App extends Component {
             render={(routerProps) => <WarehouseDetails {...routerProps} />}
           />
 
-          <Route
-            path="/warehouses/:id"
-            render={(routerProps) => <WarehouseDetails {...routerProps} />}
-          />
-
           {/* <Route
-            path="/warehouses/edit/:id"
+            path="/add/warehouses"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          /> */}
+		      /> */}
 
           {/* <Route
-            path="/warehouses/add"
-            render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-		  /> */}
-
-          {/* <Route
-            path="/warehouses/:id/edit"
+            path="/edit/warehouses/:id"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           /> */}
 
@@ -85,12 +76,12 @@ export default class App extends Component {
           /> */}
 
           <Route
-            path="/inventory/add"
+            path="/add/inventory"
             render={(routerProps) => <AddEditInventory {...routerProps} />}
           />
 
           <Route
-            path="/inventory/edit/:id"
+            path="/edit/inventory/:id"
             render={(routerProps) => <AddEditInventory {...routerProps} />}
           />
         </Switch>
