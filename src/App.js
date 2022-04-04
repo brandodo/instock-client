@@ -5,7 +5,7 @@ import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
 import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx";
-// import InventoryList from "./components/InventoryList/InventoryList.jsx";
+import InventoryList from "./components/InventoryList/InventoryList.jsx";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails.jsx";
 
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
@@ -65,11 +65,11 @@ export default class App extends Component {
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           />
 
-          {/* <Route
+          <Route
             path="/inventory"
             exact
             render={(routerProps) => <InventoryList {...routerProps} />}
-          /> */}
+          />
 
           <Route
             path="/inventory/:id"
