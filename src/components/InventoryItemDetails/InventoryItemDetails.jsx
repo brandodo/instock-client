@@ -46,7 +46,7 @@ class InventoryItemDetails extends React.Component {
         <div className="inventorydetails">
           <div className="inventorydetails__nav">
             <div className="inventorydetails__nav-wrapper">
-              <Link to="/inventories">
+              <Link to="/inventory">
                 {" "}
                 <img
                   className="inventorydetails__image"
@@ -62,7 +62,7 @@ class InventoryItemDetails extends React.Component {
                 className="inventorydetails__form-label"
                 htmlFor="text"
               ></label>
-              <Link to={`/inventory/edit/${inventory.id}`}>
+              <Link to={`/edit/inventory/${inventory.id}`}>
                 <button className="inventorydetails__button" type="submit">
                   <img
                     className="inventorydetails__form-edit-icon"
