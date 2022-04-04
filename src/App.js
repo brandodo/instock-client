@@ -4,9 +4,10 @@ import Header from "./components/Header/Header"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
-import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx"; // to be added -> Renish
-// import InventoryList from "./components/InventoryList/InventoryList.jsx"; // to be added -> Ashley
-// import InventoryDetails from "./components/InventoryDetails/InventoryDetails.jsx"; // to be added -> Renish
+import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx";
+// import InventoryList from "./components/InventoryList/InventoryList.jsx"; 
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
 import "./App.scss";
 
@@ -54,12 +55,12 @@ export default class App extends Component {
             render={(routerProps) => <WarehouseDetails {...routerProps} />}
           />
 
-          <Route
+          {/* <Route
             path="/add/warehouses"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          />
+		      /> */}
 
-          <Route
+          {/* <Route
             path="/edit/warehouses/:id"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           />
@@ -70,10 +71,10 @@ export default class App extends Component {
             render={(routerProps) => <InventoryList {...routerProps} />}
           /> */}
 
-          {/* <Route
+          <Route
             path="/inventory/:id"
-            render={(routerProps) => <InventoryDetails {...routerProps} />}
-          /> */}
+            render={(routerProps) => <InventoryItemDetails {...routerProps} />}
+          />
 
           <Route
             path="/add/inventory"

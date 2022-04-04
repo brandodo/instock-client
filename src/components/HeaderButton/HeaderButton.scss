@@ -6,6 +6,7 @@
   border-radius: 20px;
   border-style: solid;
   border-color: $graphite;
+  
 }
 .header__button:hover {
   background-color: $instock-black;
@@ -19,7 +20,7 @@
   }
 }
 
-@media (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint) {
+@media (max-width: $tablet-breakpoint) {
   .header__button {
     width: 8em;
     height: 2.5rem;
