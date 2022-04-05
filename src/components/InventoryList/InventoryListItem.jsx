@@ -1,16 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import chevRight from "../../assets/images/Icons/chevron_right-24px.svg";
 import deleteButton from "../../assets/images/Icons/delete_outline-24px.svg";
 import edit from "../../assets/images/Icons/edit-24px.svg";
 
-export default function InventoryListItem({ data }) {
+export default function InventoryListItem({ data, url }) {
   const { id, warehouseName, itemName, category, status, quantity } = data;
 
   const stockStyling =
     status.toLowerCase() === "in stock"
       ? "inventoryList__text--inStock"
       : "inventoryList__text--outStock";
+
+  const history = useHistory();
 
   return (
     <div className="inventoryList__itemContainer">
@@ -52,7 +54,10 @@ export default function InventoryListItem({ data }) {
           src={deleteButton}
           alt="delete-button"
         />
-        <Link to={`/edit/inventory/${id}`}>
+        <Link
+          to={`/edit/inventory/${id}`}
+          onClick={() => history.push(`${url}`)}
+        >
           <img className="inventoryList__edit" src={edit} alt="edit-button" />
         </Link>
       </div>

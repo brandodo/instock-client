@@ -4,7 +4,7 @@
 .inventoryList {
   &__container {
     margin: -72px $mobile-margins $padding-incr * 10;
-    padding-top: $padding-incr * 8;
+    padding-top: $padding-incr * 3;
     border-radius: 3px;
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
     background-color: $white;
@@ -15,6 +15,10 @@
 
     @include tablet {
       margin: -94px $tablet-margins 268px;
+
+      & > div:last-child {
+        border: none;
+      }
     }
 
     @include desktop {
@@ -31,6 +35,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       padding: $padding-incr * 2 $padding-incr * 8 $padding-incr * 6;
     }
 
@@ -42,11 +47,48 @@
   &__headerRight {
     @include tablet {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       width: 50%;
       gap: 16px;
     }
+  }
+
+  &__tableHeaders {
+    display: none;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      background-color: rgba(247, 248, 249, 0.7);
+      padding: $padding-incr * 3 $padding-incr * 8;
+      box-sizing: border-box;
+    }
+
+    @include desktop {
+      padding-left: $padding-incr * 10;
+    }
+  }
+
+  &__mainContainer {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 80%;
+    gap: 40px;
+  }
+
+  &__columnContainer {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__columnHeader {
+    font-family: "Titillium-Semi";
+    font-size: 12px;
+    line-height: 18px;
+    color: $slate;
   }
 
   &__header {
@@ -65,6 +107,14 @@
     background-repeat: no-repeat;
     background-position: right;
     background-position-x: 97%;
+
+    @include tablet {
+      width: 185px;
+    }
+
+    @include desktop {
+      width: 274px;
+    }
   }
 
   &__button {
@@ -74,6 +124,30 @@
     border: none;
     background-color: $instock-indigo;
     color: $white;
+
+    @include tablet {
+      width: 128px;
+    }
+  }
+
+  &__itemContainer {
+    @include tablet {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $cloud;
+      padding-left: $padding-incr * 8;
+      box-sizing: border-box;
+
+      & > hr {
+        display: none;
+      }
+    }
+
+    @include desktop {
+      padding-left: $padding-incr * 10;
+    }
   }
 
   &__itemInfo {
@@ -83,6 +157,14 @@
     height: 160px;
     gap: 20px;
     padding: $padding-incr * 4 $padding-incr * 6 calc($padding-incr / 2);
+
+    @include tablet {
+      width: 80%;
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      height: 56px;
+      padding-left: 0;
+    }
   }
 
   &__textHeader {
@@ -90,6 +172,10 @@
     font-size: 11px;
     line-height: 16px;
     color: $slate;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__link {
@@ -136,5 +222,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 $padding-incr * 6 $padding-incr * 6;
+
+    @include tablet {
+      gap: 24px;
+      padding-right: $padding-incr * 8;
+    }
   }
 }
