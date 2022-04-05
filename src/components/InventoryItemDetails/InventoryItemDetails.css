@@ -61,6 +61,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 24px 2rem 16px;
+    height: 5.5rem;
+  }
+}
+@media (min-width: 1279px) {
+  .inventorydetails__nav {
+    height: 5.5rem;
   }
 }
 .inventorydetails__nav-wrapper {
@@ -310,6 +316,12 @@
 @media (min-width: 767px) {
   .inventorydetails .column-right--row {
     gap: 50%;
+    padding-right: 0;
+  }
+}
+@media (min-width: 1279px) {
+  .inventorydetails .column-right--row {
+    gap: 168px;
   }
 }
 .inventorydetails .column-right--row p {
@@ -360,4 +372,7 @@
   justify-content: center;
   padding: 4px 8px;
   border-radius: 20px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }/*# sourceMappingURL=InventoryItemDetails.css.map */

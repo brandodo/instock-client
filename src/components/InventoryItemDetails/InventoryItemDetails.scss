@@ -8,7 +8,7 @@
   margin-right: 1rem;
   z-index: 1;
   top: -4rem;
-  background: #ffffff;
+  background: $white;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
   @include tablet {
@@ -40,6 +40,11 @@
       align-items: center;
       justify-content: space-between;
       padding: $padding-incr * 6 2rem $padding-incr * 4;
+      height: 5.5rem;
+    }
+
+    @include desktop {
+      height: 5.5rem;
     }
 
     &-wrapper {
@@ -191,7 +196,7 @@
         @include semi;
         font-size: 14px;
         line-height: 22px;
-        color: #ffffff;
+        color: $white;
         position: absolute;
         right: 15px;
       }
@@ -269,6 +274,11 @@
 
     @include tablet {
       gap: 50%;
+      padding-right: 0;
+    }
+
+    @include desktop {
+      gap: 168px;
     }
     p {
       display: flex;
@@ -310,6 +320,7 @@
         justify-content: center;
         padding: 4px 8px;
         border-radius: 20px;
+        min-width: max-content;
       }
     }
   }

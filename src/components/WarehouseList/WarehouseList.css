@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information {
     flex-direction: row;
     justify-content: space-between;
@@ -36,7 +36,7 @@
     position: relative;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse__information {
     flex-direction: row;
     justify-content: space-between;
@@ -49,7 +49,7 @@
   display: flex;
   justify-content: space-between;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-data {
     align-items: baseline;
   }
@@ -61,7 +61,7 @@
   width: 40%;
   margin-right: 1rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-top {
     flex-direction: row;
     justify-content: center;
@@ -73,7 +73,7 @@
 .warehouse__information-address {
   margin-top: 1rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-address {
     padding-left: 3rem;
     position: absolute;
@@ -83,7 +83,7 @@
 .warehouse__information-contact {
   padding-right: 2.5rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-contact {
     position: absolute;
     right: 48%;
@@ -92,7 +92,7 @@
 .warehouse__information-contact-information {
   margin-top: 1rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-contact-information {
     position: absolute;
     top: -15px;
@@ -107,7 +107,7 @@
   width: 150px;
   right: -40px;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__information-bottom {
     position: absolute;
     flex-direction: row;
@@ -125,7 +125,7 @@
   margin: 0;
   color: #5c667e;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__subheader {
     display: none;
   }
@@ -135,7 +135,7 @@
   bottom: 1.5px;
   left: 0.5rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__chevron {
     bottom: 2px;
   }
@@ -154,7 +154,7 @@
   text-decoration: none;
   width: 7rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__location {
     width: 10rem;
   }
@@ -167,7 +167,7 @@
   line-height: 20px;
   margin-top: 0.3rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__address-details {
     position: relative;
     bottom: 2.5rem;
@@ -184,7 +184,7 @@
   margin: 0;
   margin-top: 0.3rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__contact-number {
     position: relative;
     bottom: 1.5rem;
@@ -199,7 +199,7 @@
   line-height: 20px;
   margin: 0;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__contact-email {
     position: relative;
     bottom: 1.5rem;
@@ -216,7 +216,7 @@
   margin: 0;
   margin-top: 0.3rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__contact-name {
     position: relative;
     left: 0.5rem;
@@ -229,22 +229,22 @@
   display: flex;
   justify-content: space-between;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__actions {
     padding: 0.5rem 0;
   }
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__actions-trash {
     margin-right: 0.5rem;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse__actions-trash {
     margin-right: 1rem;
   }
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__actions-edit {
     position: relative;
     top: 2px;
