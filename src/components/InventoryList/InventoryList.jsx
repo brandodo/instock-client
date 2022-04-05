@@ -31,7 +31,6 @@ export default class InventoryList extends Component {
     };
 
     const showDelete = (id, name) => {
-      console.log(id, name);
       this.setState({ itemName: name, itemId: id, show: true });
     };
 
