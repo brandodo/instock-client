@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
@@ -22,6 +22,7 @@ export default class AddEditInventory extends Component {
     warehouse: "",
     redirect: false,
     open: false,
+    prevLocation: "",
   };
 
   async componentDidMount() {
@@ -156,19 +157,12 @@ export default class AddEditInventory extends Component {
         onSubmit={(event) => handleForm(event)}
       >
         <div className="inventoryDetails__container">
-          <Link
-            to={
-              this.state.isAdd
-                ? "/inventory"
-                : `/warehouses/${this.state.currentItem.warehouseID}`
-            }
-          >
-            <img
-              className="inventoryDetails__back"
-              src={backArrow}
-              alt="back-nav"
-            />
-          </Link>
+          <img
+            className="inventoryDetails__back"
+            src={backArrow}
+            alt="back-nav"
+            onClick={() => this.props.history.goBack()}
+          />
           <h1 className="inventoryDetails__header">
             {this.state.isAdd
               ? "Add New Inventory Item"
@@ -197,16 +191,15 @@ export default class AddEditInventory extends Component {
           />
         </div>
         <div className="inventoryDetails__btn-container">
-          <Link
-            to={
-              this.state.isAdd
-                ? "/inventory"
-                : `/warehouses/${this.state.currentItem.warehouseID}`
-            }
-            className="inventoryDetails__link "
+          <button
+            className="inventoryDetails__cancel"
+            onClick={(event) => {
+              event.preventDefault();
+              this.props.history.goBack();
+            }}
           >
-            <button className="inventoryDetails__cancel">Cancel</button>
-          </Link>
+            Cancel
+          </button>
           <button
             className={`inventoryDetails__submit ${
               disableButton

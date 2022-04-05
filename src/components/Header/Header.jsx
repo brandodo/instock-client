@@ -29,7 +29,7 @@ export default function Header(props) {
         </HeaderButton>
         <HeaderButton
           onClick={() => {
-            history.push("/inventories");
+            history.push("/inventory");
           }}
         >
           Inventory

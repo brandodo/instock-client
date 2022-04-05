@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Header from "./components/Header/Header"; // to be added -> Ashley
+import Header from "./components/Header/Header";
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
 import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx";
-// import InventoryList from "./components/InventoryList/InventoryList.jsx";
-import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import InventoryList from "./components/InventoryList/InventoryList.jsx";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails.jsx";
 
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
 import "./App.scss";
@@ -16,20 +16,7 @@ export default class App extends Component {
     data: null,
     itemdata: null,
   };
-  /* Miloan to review if still needed, remove if not needed */
-
-  onChangeHandler = (data) => {
-    this.setState({
-      data: data,
-    });
-  };
-
-  onChangeHandlerItem = (data) => {
-    this.setState({
-      itemdata: data,
-    });
-  };
-
+ 
   render() {
     return (
       <BrowserRouter>
@@ -65,11 +52,11 @@ export default class App extends Component {
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
           />
 
-          {/* <Route
+          <Route
             path="/inventory"
             exact
             render={(routerProps) => <InventoryList {...routerProps} />}
-          /> */}
+          />
 
           <Route
             path="/inventory/:id"

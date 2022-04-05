@@ -141,13 +141,12 @@ export default class AddEditWarehouse extends Component {
         onSubmit={(event) => handleForm(event)}
       >
         <div className="warehouseDetails__container">
-          <Link to="/warehouses">
-            <img
-              className="warehouseDetails__back"
-              src={backArrow}
-              alt="back-arrow"
-            />
-          </Link>
+          <img
+            className="warehouseDetails__back"
+            src={backArrow}
+            alt="back-arrow"
+            onClick={() => this.props.history.goBack()}
+          />
           <h1 className="warehouseDetails__header">
             {this.state.isAdd ? "Add New Warehouse" : "Edit Warehouse"}
           </h1>
