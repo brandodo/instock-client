@@ -32,7 +32,9 @@ export default function WarehouseFIeld({
       </label>
       <input
         className={`warehouseDetails__input ${
-          error ? "warehouseDetails__input--error" : ""
+          error || phoneWarning || emailWarning
+            ? "warehouseDetails__input--error"
+            : ""
         }`}
         type="text"
         name={name}
