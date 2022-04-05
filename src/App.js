@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Header from "./components/Header/Header"; // to be added -> Ashley
+import Header from "./components/Header/Header";
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
@@ -16,20 +16,7 @@ export default class App extends Component {
     data: null,
     itemdata: null,
   };
-  /* Miloan to review if still needed, remove if not needed */
-
-  onChangeHandler = (data) => {
-    this.setState({
-      data: data,
-    });
-  };
-
-  onChangeHandlerItem = (data) => {
-    this.setState({
-      itemdata: data,
-    });
-  };
-
+ 
   render() {
     return (
       <BrowserRouter>
