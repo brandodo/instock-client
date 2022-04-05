@@ -33,7 +33,7 @@ class WarehouseList extends React.Component {
 
   onDeleteHandler = async (warehouseId) => {
     await axios
-      .delete(`${API_URL}/edit/warehouses/${warehouseId}`)
+      .delete(`${API_URL}/warehouses/edit/${warehouseId}`)
       .then((response) => {
         this.setState({
           show: false,
