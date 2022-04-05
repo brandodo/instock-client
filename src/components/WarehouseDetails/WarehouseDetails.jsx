@@ -223,9 +223,6 @@ class WarehouseDetails extends React.Component {
                         INVENTORY ITEM
                       </h4>
                       <Link
-                        onClick={() => {
-                          this.props.onChangeHandler(item);
-                        }}
                         to={`/inventory/${item.id}`}
                         className="warehousedetails__itemname"
                       >
