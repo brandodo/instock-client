@@ -26,7 +26,9 @@ export default function ItemCategory({ value, handleChange, data, isAdd }) {
           return self.findIndex((v) => v.category === val.category) === index;
         })
         .map((item) => {
-          return <CategoryOption key={item.id} value={item.category} />;
+          return (
+            <CategoryOption key={item.id} value={item.category} />
+          );
         })}
     </select>
   );

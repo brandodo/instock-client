@@ -4,8 +4,8 @@ import Header from "./components/Header/Header"; // to be added -> Ashley
 import HeroFooter from "./components/HeroFooter/HeroFooter";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./components/Warehouses/Warehouses";
-// import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx"; // to be added -> Renish
-// import InventoryList from "./components/InventoryList/InventoryList.jsx"; // to be added -> Renish
+import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx";
+// import InventoryList from "./components/InventoryList/InventoryList.jsx";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
@@ -55,15 +55,15 @@ export default class App extends Component {
             render={(routerProps) => <WarehouseDetails {...routerProps} />}
           />
 
-          {/* <Route
+          <Route
             path="/add/warehouses"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-		      /> */}
+          />
 
-          {/* <Route
+          <Route
             path="/edit/warehouses/:id"
             render={(routerProps) => <AddEditWarehouse {...routerProps} />}
-          /> */}
+          />
 
           {/* <Route
             path="/inventory"
@@ -80,7 +80,6 @@ export default class App extends Component {
             path="/add/inventory"
             render={(routerProps) => <AddEditInventory {...routerProps} />}
           />
-
           <Route
             path="/edit/inventory/:id"
             render={(routerProps) => <AddEditInventory {...routerProps} />}

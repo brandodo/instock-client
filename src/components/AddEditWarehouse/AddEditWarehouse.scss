@@ -1,0 +1,196 @@
+@use "../../partials/mixin" as *;
+@use "../../partials/variables" as *;
+
+.warehouseDetails {
+  &__form {
+    margin: -72px $mobile-margins $padding-incr * 10;
+    padding-top: $padding-incr * 8;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+    background-color: $white;
+
+    & hr {
+      background: $cloud;
+    }
+
+    @include tablet {
+      margin: -94px $tablet-margins 268px;
+    }
+
+    @include desktop {
+      margin: -94px $desktop-margins 161px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 $padding-incr * 4;
+
+    @include tablet {
+      justify-content: flex-start;
+      padding: 0 $padding-incr * 8;
+    }
+
+    @include desktop {
+      padding: 0 $padding-incr * 10;
+    }
+  }
+
+  &__back {
+    padding-top: $padding-incr * 2;
+    padding-right: $padding-incr * 3;
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+
+      &:hover {
+        margin-left: -6px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  &__header {
+    @include headerFont;
+  }
+
+  &__body {
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+
+      & > hr {
+        margin: $padding-incr * 6 $padding-incr * 10;
+      }
+    }
+  }
+
+  &__details,
+  &__contactDetails {
+    @include formSpacing;
+
+    @include tablet {
+      width: 100%;
+      padding: $padding-incr * 6 $padding-incr * 8;
+    }
+
+    @include desktop {
+      padding-left: $padding-incr * 10;
+      padding-right: $padding-incr * 10;
+    }
+  }
+
+  &__subHeader {
+    @include subheaderFont;
+  }
+
+  &__field {
+    @include formSpacing;
+    padding-bottom: $padding-incr * 4;
+  }
+
+  &__label {
+    @include labelFont;
+  }
+
+  &__input {
+    @include formField;
+
+    &--error {
+      border: 2px solid $red;
+    }
+
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
+  }
+
+  &__message {
+    display: none;
+    &--error {
+      display: block;
+      @include errorText;
+      background-image: url("../../assets/images/Icons/error-24px.svg");
+      background-repeat: no-repeat;
+      background-size: 13.33px;
+      background-position: left center;
+      padding-left: $padding-incr * 4;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-incr * 4 $padding-incr * 6;
+    background-color: $light-grey;
+
+    @include tablet {
+      justify-content: flex-end;
+      padding: $padding-incr * 6 $padding-incr * 8;
+    }
+
+    @include desktop {
+      padding-left: $padding-incr * 10;
+      padding-right: $padding-incr * 10;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    width: 45%;
+
+    @include tablet {
+      width: fit-content;
+    }
+  }
+
+  &__cancel {
+    @include button;
+    border: 1px solid $cloud;
+    background-color: $white;
+    color: $slate;
+    width: 100%;
+
+    @include tablet {
+      width: fit-content;
+    }
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: $light-grey;
+      }
+    }
+  }
+
+  &__submit {
+    @include button;
+    border: 1px solid $instock-indigo;
+    background-color: $instock-indigo;
+    color: $white;
+    margin-left: $padding-incr * 4;
+    width: 45%;
+
+    &-disabled {
+      opacity: 50%;
+    }
+
+    @include tablet {
+      width: fit-content;
+    }
+
+    @include desktop {
+      transition: 0.15s all ease-in-out;
+      &-hover {
+        cursor: pointer;
+        &:hover {
+          background-color: $hover;
+        }
+      }
+    }
+  }
+}

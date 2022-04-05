@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as InStockLogo } from "../../assets/images/Logo/InStock-Logo.svg";
+import { ReactComponent as InStockLogo } from "../../assets/images/logo/InStock-Logo.svg";
 import "./Header.scss";
 import "../../components/HeaderButton/HeaderButton";
 import HeaderButton from "../../components/HeaderButton/HeaderButton";

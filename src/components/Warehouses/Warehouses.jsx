@@ -27,7 +27,7 @@ const Warehouses = (props) => {
           </form>
           <Link to="/add/warehouses" style={{ textDecoration: "none" }}>
             <button className="warehouse__button" type="submit">
-              <h3 className="warehouse__button-text">+Add New Warehouse</h3>{" "}
+              <h3 className="warehouse__button-text">+ Add New Warehouse</h3>
             </button>
           </Link>
         </div>

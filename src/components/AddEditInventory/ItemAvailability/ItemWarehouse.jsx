@@ -8,7 +8,10 @@ export default function ItemWarehouse({ value, handleChange, data, isAdd }) {
       name="warehouse"
       placeholder="Please select"
       value={"" || value}
-      onChange={(event) => handleChange(event)}
+      onChange={(event) => {
+        const warehouseId = event.target.selectedOptions[0].id;
+        handleChange(event, warehouseId);
+      }}
     >
       {isAdd && (
         <option value="" disabled>
@@ -17,7 +20,11 @@ export default function ItemWarehouse({ value, handleChange, data, isAdd }) {
       )}
       {data.map((warehouse) => {
         return (
-          <WarehouseOption key={warehouse.id} value={warehouse.name} />
+          <WarehouseOption
+            key={warehouse.id}
+            id={warehouse.id}
+            value={warehouse.name}
+          />
         );
       })}
     </select>

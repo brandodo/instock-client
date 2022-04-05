@@ -69,7 +69,7 @@ export default class AddEditInventory extends Component {
   }
 
   render() {
-    const handleChange = (event) => {
+    const handleChange = (event, warehouseId) => {
       if (event.target.name === "status") {
         event.target.value === "inStock"
           ? this.setState({ status: "In Stock", showQuantity: true })
@@ -80,16 +80,19 @@ export default class AddEditInventory extends Component {
             });
       } else {
         this.setState({ [event.target.name]: event.target.value });
+
+        if (warehouseId) this.setState({ warehouseId: warehouseId });
       }
     };
 
     const handleForm = (event) => {
       event.preventDefault();
       const { id } = this.props.match.params;
+
       this.setState({ open: true });
+
       setTimeout(() => {
         this.state.isAdd ? addInventory() : editInventory(id);
-        this.setState({ open: false, redirect: true });
       }, 2000);
     };
 
@@ -101,6 +104,7 @@ export default class AddEditInventory extends Component {
           category: this.state.category,
           status: this.state.status,
           quantity: this.state.quantity,
+          warehouseId: this.state.warehouseId,
           warehouse: this.state.warehouse,
         })
         .then(() => {

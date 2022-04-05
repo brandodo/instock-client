@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function WarehouseOption({ value }) {
+export default function WarehouseOption({ value, id }) {
   return (
     <>
-      <option>{value}</option>
+      <option id={id}>{value}</option>
     </>
   );
 }
