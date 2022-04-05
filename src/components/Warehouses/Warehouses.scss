@@ -1,6 +1,7 @@
 @use "../../partials/typography" as *;
 @use "../../partials/mixin" as *;
 @use "../../partials/variables" as *;
+
 .warehouse {
   padding-top: 1rem;
   z-index: 1;
@@ -26,6 +27,7 @@
     background-color: $light-grey;
     font-size: 11px;
     position: relative;
+
     @include tablet {
       padding-left: 2rem;
       padding-right: 2rem;
@@ -62,6 +64,7 @@
       }
     }
   }
+
   &__nav {
     padding: $padding-incr * 6 1rem 0;
     @include tablet {
@@ -144,17 +147,22 @@
     border-radius: 20px;
     margin: 1rem 0;
     border: none;
+
     &:hover {
       background: #232940;
+      cursor: pointer;
     }
+
     @include tablet {
       width: none;
       padding: 0 1rem;
       max-width: 180px;
     }
+
     &-text {
       width: 127px;
       height: 20px;
+
       @include semi;
       font-size: 13px;
       line-height: 20px;

@@ -4,7 +4,7 @@ import chevRight from "../../assets/images/Icons/chevron_right-24px.svg";
 import deleteButton from "../../assets/images/Icons/delete_outline-24px.svg";
 import edit from "../../assets/images/Icons/edit-24px.svg";
 
-export default function InventoryListItem({ data, url }) {
+export default function InventoryListItem({ data, url, showDelete }) {
   const { id, warehouseName, itemName, category, status, quantity } = data;
 
   const stockStyling =
@@ -15,7 +15,7 @@ export default function InventoryListItem({ data, url }) {
   const history = useHistory();
 
   return (
-    <div className="inventoryList__itemContainer">
+    <div className="inventoryList__itemContainer" id={id}>
       <hr></hr>
       <div className="inventoryList__itemInfo">
         <div className="inventoryList__textContainer">
@@ -53,6 +53,7 @@ export default function InventoryListItem({ data, url }) {
           className="inventoryList__delete"
           src={deleteButton}
           alt="delete-button"
+          onClick={() => showDelete(id, itemName)}
         />
         <Link
           to={`/edit/inventory/${id}`}

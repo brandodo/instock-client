@@ -48,6 +48,7 @@
       &:hover {
         margin-left: -6px;
         margin-right: 6px;
+        cursor: pointer;
       }
     }
   }
@@ -162,7 +163,8 @@
       transition: 0.15s all ease-in-out;
       &:hover {
         cursor: pointer;
-        background-color: $light-grey;
+        border: 1px solid $instock-indigo;
+        color: $instock-indigo;
       }
     }
   }
@@ -188,7 +190,7 @@
       &-hover {
         cursor: pointer;
         &:hover {
-          background-color: $hover;
+          background-color: $graphite;
         }
       }
     }

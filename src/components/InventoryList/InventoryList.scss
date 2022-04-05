@@ -81,6 +81,8 @@
   &__columnContainer {
     @include tablet {
       display: flex;
+      justify-content: flex-start;
+      align-items: center;
     }
   }
 
@@ -89,6 +91,12 @@
     font-size: 12px;
     line-height: 18px;
     color: $slate;
+  }
+
+  &__sortArrow {
+    @include tablet {
+      width: 24px;
+    }
   }
 
   &__header {
@@ -128,13 +136,20 @@
     @include tablet {
       width: 128px;
     }
+
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+        background-color: $graphite;
+      }
+    }
   }
 
   &__itemContainer {
     @include tablet {
       width: 100%;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       border-bottom: 1px solid $cloud;
       padding-left: $padding-incr * 8;
@@ -147,6 +162,10 @@
 
     @include desktop {
       padding-left: $padding-incr * 10;
+
+      &:hover {
+        background-color: rgba(46, 102, 229, 0.07);
+      }
     }
   }
 
@@ -156,12 +175,13 @@
     flex-wrap: wrap;
     height: 160px;
     gap: 20px;
-    padding: $padding-incr * 4 $padding-incr * 6 calc($padding-incr / 2);
+    padding: $padding-incr * 2 $padding-incr * 6 calc($padding-incr / 2);
 
     @include tablet {
       width: 80%;
       display: inline-grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      align-items: center;
       height: 56px;
       padding-left: 0;
     }
@@ -186,6 +206,20 @@
     font-size: 13px;
     line-height: 20px;
     color: $instock-indigo;
+
+    @include desktop {
+      & > img {
+        transition: 0.15s all ease-in-out;
+      }
+
+      &:hover {
+        text-decoration: underline;
+
+        & > img {
+          padding-left: 4px;
+        }
+      }
+    }
   }
 
   &__chevRight {
@@ -221,11 +255,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 $padding-incr * 6 $padding-incr * 6;
+    padding: 0 $padding-incr * 6 $padding-incr * 4;
 
     @include tablet {
       gap: 24px;
       padding-right: $padding-incr * 8;
+      align-items: flex-start;
+    }
+  }
+
+  &__delete {
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

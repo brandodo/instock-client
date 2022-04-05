@@ -13,7 +13,7 @@ const DelModal = ({
   if (!show) {
     return null;
   }
-
+  console.log(itemName, itemId);
   return (
     <div className="modal-del">
       <div className="modal-del-content">
