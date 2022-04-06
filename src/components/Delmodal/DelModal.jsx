@@ -12,7 +12,7 @@ const DelModal = ({
 }) => {
   if (!show) {
     return null;
-  }
+  } 
 
   return (
     <div className="modal-del">
