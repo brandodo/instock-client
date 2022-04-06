@@ -175,7 +175,7 @@
     flex-wrap: wrap;
     height: 160px;
     gap: 20px;
-    padding: $padding-incr * 2 $padding-incr * 6 calc($padding-incr / 2);
+    padding: $padding-incr * 4 $padding-incr * 6 calc($padding-incr / 2);
 
     @include tablet {
       width: 80%;
@@ -184,6 +184,7 @@
       align-items: center;
       height: 56px;
       padding-left: 0;
+      padding-top: $padding-incr * 2;
     }
   }
 

@@ -160,7 +160,10 @@ export default class AddEditWarehouse extends Component {
         <div className="warehouseDetails__btn-container">
           <button
             className="warehouseDetails__cancel"
-            onClick={() => this.props.history.goBack()}
+            onClick={(event) => {
+              event.preventDefault();
+              this.props.history.goBack();
+            }}
           >
             Cancel
           </button>

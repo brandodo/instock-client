@@ -108,7 +108,7 @@ export default class AddEditInventory extends Component {
           warehouse: this.state.warehouse,
         })
         .then(() => {
-          this.setState({ redirect: true });
+          this.props.history.goBack();
         });
     };
 
@@ -123,7 +123,7 @@ export default class AddEditInventory extends Component {
           warehouse: this.state.warehouse,
         })
         .then(() => {
-          this.setState({ redirect: true });
+          this.props.history.goBack();
         });
     };
 
