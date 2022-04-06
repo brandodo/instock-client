@@ -31,9 +31,9 @@ export default function Header(props) {
           Warehouses
         </HeaderButton>
         <HeaderButton
-          className={`${pathname === "/inventories" ? "selected" : ""}`}
+          className={`${pathname === "/inventory" ? "selected" : ""}`}
           onClick={() => {
-            history.push("/inventories");
+            history.push("/inventory");
           }}
         >
           Inventory
