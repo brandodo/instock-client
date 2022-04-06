@@ -139,21 +139,12 @@
     }
   }
 
-  &__link {
-    text-decoration: none;
-    width: 45%;
-
-    @include tablet {
-      width: fit-content;
-    }
-  }
-
   &__cancel {
     @include button;
     border: 1px solid $cloud;
     background-color: $white;
     color: $slate;
-    width: 100%;
+    width: 45%;
 
     @include tablet {
       width: fit-content;

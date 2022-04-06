@@ -158,9 +158,13 @@ export default class AddEditWarehouse extends Component {
           <ContactDetails handleChange={handleChange} data={this.state} />
         </div>
         <div className="warehouseDetails__btn-container">
-          <Link to="/warehouses" className="warehouseDetails__link">
-            <button className="warehouseDetails__cancel">Cancel</button>
-          </Link>
+          <button
+            className="warehouseDetails__cancel"
+            onClick={() => this.props.history.goBack()}
+          >
+            Cancel
+          </button>
+
           <button
             className={`warehouseDetails__submit ${
               disableButton || this.state.formatError

@@ -22,7 +22,6 @@ export default class AddEditInventory extends Component {
     warehouse: "",
     redirect: false,
     open: false,
-    prevLocation: "",
   };
 
   async componentDidMount() {
