@@ -6,23 +6,43 @@ export default function InventoryListColumns() {
       <div className="inventoryList__mainContainer">
         <div className="inventoryList__columnContainer">
           <h3 className="inventoryList__columnHeader">INVENTORY ITEM</h3>
-          <img className="inventoryList__sortArrow" src={sortArrows} />
+          <img
+            className="inventoryList__sortArrow"
+            src={sortArrows}
+            alt="sort-arrows"
+          />
         </div>
         <div className="inventoryList__columnContainer">
           <h3 className="inventoryList__columnHeader">CATEGORY</h3>
-          <img className="inventoryList__sortArrow" src={sortArrows} />
+          <img
+            className="inventoryList__sortArrow"
+            src={sortArrows}
+            alt="sort-arrows"
+          />
         </div>
         <div className="inventoryList__columnContainer">
           <h3 className="inventoryList__columnHeader">STATUS</h3>
-          <img className="inventoryList__sortArrow" src={sortArrows} />
+          <img
+            className="inventoryList__sortArrow"
+            src={sortArrows}
+            alt="sort-arrows"
+          />
         </div>
         <div className="inventoryList__columnContainer">
           <h3 className="inventoryList__columnHeader">QTY</h3>
-          <img className="inventoryList__sortArrow" src={sortArrows} />
+          <img
+            className="inventoryList__sortArrow"
+            src={sortArrows}
+            alt="sort-arrows"
+          />
         </div>
         <div className="inventoryList__columnContainer">
           <h3 className="inventoryList__columnHeader">WAREHOUSE</h3>
-          <img className="inventoryList__sortArrow" src={sortArrows} />
+          <img
+            className="inventoryList__sortArrow"
+            src={sortArrows}
+            alt="sort-arrows"
+          />
         </div>
       </div>
       <div className="inventoryList__columnContainer inventoryList__columnContainer--actions">
