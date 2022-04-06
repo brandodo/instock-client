@@ -77,10 +77,7 @@ const Warehouses = (props) => {
         </li>
       </ul>
       <DelModal />
-      <WarehouseList
-        onChangeHandler={props.onChangeHandler}
-        data={props.data}
-      />
+      <WarehouseList />
     </section>
   );
 };

@@ -11,6 +11,7 @@ class InventoryItemDetails extends React.Component {
     error: false,
     inventory: null,
   };
+
   componentDidMount() {
     let id = this.props.match.params.id;
     axios
@@ -23,16 +24,19 @@ class InventoryItemDetails extends React.Component {
         console.error(err);
       });
   }
+
   render() {
     if (this.state.error) {
       return <main className="load-screen">Error loading inventory!</main>;
     }
+
     if (!this.state.inventory) {
       return <main className="load-screen">Loading...</main>;
     }
 
     let stockDecide =
       "inventorydetails__inventory-status inventorydetails__inventory-status";
+
     if (this.state.inventory.status === "Out of Stock") {
       stockDecide = stockDecide + "--outstock";
     } else {

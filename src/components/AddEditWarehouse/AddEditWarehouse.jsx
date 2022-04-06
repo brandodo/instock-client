@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Snackbar, Slide, Alert } from "@mui/material";
 import WarehouseDetails from "./WarehouseDetails.jsx";
 import ContactDetails from "./ContactDetails.jsx";
@@ -19,7 +18,6 @@ export default class AddEditWarehouse extends Component {
     position: "",
     phone: "",
     email: "",
-    redirect: false,
     open: false,
     formatError: false,
   };
@@ -81,7 +79,6 @@ export default class AddEditWarehouse extends Component {
     };
 
     const addWarehouse = () => {
-      console.log("adding");
       axios
         .post(`${API_URL}/warehouses/add`, {
           warehouseName: this.state.warehouseName,
@@ -94,7 +91,7 @@ export default class AddEditWarehouse extends Component {
           email: this.state.email,
         })
         .then(() => {
-          this.setState({ redirect: true });
+          this.props.history.goBack();
         });
     };
 
@@ -111,7 +108,7 @@ export default class AddEditWarehouse extends Component {
           email: this.state.email,
         })
         .then(() => {
-          this.setState({ redirect: true });
+          this.props.history.goBack();
         });
     };
 
@@ -128,12 +125,6 @@ export default class AddEditWarehouse extends Component {
     const TransitionDown = (props) => {
       return <Slide {...props} direction="down" />;
     };
-
-    if (this.state.redirect) {
-      return (
-        <Redirect to={this.state.isAdd ? "/warehouses" : `/warehouses/${id}`} />
-      );
-    }
 
     return (
       <form

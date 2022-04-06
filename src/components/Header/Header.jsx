@@ -3,10 +3,9 @@ import { ReactComponent as InStockLogo } from "../../assets/images/logo/InStock-
 import "./Header.scss";
 import "../../components/HeaderButton/HeaderButton";
 import HeaderButton from "../../components/HeaderButton/HeaderButton";
-
 import { useHistory, useLocation } from "react-router-dom";
 
-export default function Header(props) {
+export default function Header() {
   const history = useHistory();
   const location = useLocation();
   const { pathname } = location;

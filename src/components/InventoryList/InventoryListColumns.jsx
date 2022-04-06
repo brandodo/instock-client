@@ -1,5 +1,6 @@
 import React from "react";
 import sortArrows from "../../assets/images/Icons/sort-24px.svg";
+
 export default function InventoryListColumns() {
   return (
     <div className="inventoryList__tableHeaders">

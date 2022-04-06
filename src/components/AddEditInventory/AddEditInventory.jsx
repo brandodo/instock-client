@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Snackbar, Slide, Alert } from "@mui/material";
 import ItemDetails from "./ItemDetails/ItemDetails.jsx";
 import ItemAvailability from "./ItemAvailability/ItemAvailability.jsx";
@@ -20,7 +19,6 @@ export default class AddEditInventory extends Component {
     status: "In Stock",
     quantity: 0,
     warehouse: "",
-    redirect: false,
     open: false,
   };
 
@@ -137,18 +135,6 @@ export default class AddEditInventory extends Component {
     const TransitionDown = (props) => {
       return <Slide {...props} direction="down" />;
     };
-
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          to={
-            this.state.isAdd
-              ? "/inventory"
-              : `/warehouses/${this.state.currentItem.warehouseID}`
-          }
-        />
-      );
-    }
 
     return (
       <form

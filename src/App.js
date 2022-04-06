@@ -7,34 +7,22 @@ import Warehouses from "./components/Warehouses/Warehouses";
 import AddEditWarehouse from "./components/AddEditWarehouse/AddEditWarehouse.jsx";
 import InventoryList from "./components/InventoryList/InventoryList.jsx";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails.jsx";
-
 import AddEditInventory from "./components/AddEditInventory/AddEditInventory";
 import "./App.scss";
 
 export default class App extends Component {
-  state = {
-    data: null,
-    itemdata: null,
-  };
- 
   render() {
     return (
       <BrowserRouter>
         <Header />
 
-        <Switch>
+        <Switch>  
           <Redirect exact from="/" to="/warehouses" />
 
           <Route
             exact
             path="/warehouses"
-            render={(props) => (
-              <Warehouses
-                {...props}
-                data={this.state.data}
-                onChangeHandler={this.onChangeHandler}
-              />
-            )}
+            render={(routerProps) => <Warehouses {...routerProps} />}
           />
 
           <Route
