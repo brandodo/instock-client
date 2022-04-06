@@ -4,10 +4,12 @@ import "./Header.scss";
 import "../../components/HeaderButton/HeaderButton";
 import HeaderButton from "../../components/HeaderButton/HeaderButton";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default function Header(props) {
   const history = useHistory();
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <div className="header">
@@ -21,13 +23,15 @@ export default function Header(props) {
       </div>
       <div className="header__buttons">
         <HeaderButton
+          className={`${pathname === "/warehouses" ? "selected" : ""}`}
           onClick={() => {
             history.push("/warehouses");
           }}
         >
-          Warehouse
+          Warehouses
         </HeaderButton>
         <HeaderButton
+          className={`${pathname === "/inventory" ? "selected" : ""}`}
           onClick={() => {
             history.push("/inventory");
           }}

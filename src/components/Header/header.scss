@@ -28,11 +28,15 @@
   }
 
   &__logo {
-    @media (max-width: $mobile-breakpoint) {
+    cursor: pointer;
+    @include mobile {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 1.5rem;
+    }
+    @include tablet {
+      padding: 0;
     }
   }
   &__left {
@@ -40,7 +44,7 @@
       display: flex;
       justify-content: center;
     }
-    @media (min-width: $mobile-breakpoint) {
+    @include tablet {
       display: flex;
       justify-content: flex-start;
     }
@@ -50,11 +54,13 @@
     @include mobile {
       display: flex;
       justify-content: space-around;
+      gap: 0.5em;
     }
-    @media (min-width: $mobile-breakpoint) {
+
+    @include tablet {
       display: flex;
       justify-content: flex-end;
-      gap: 1em;
+      width: 30%;
     }
   }
 }

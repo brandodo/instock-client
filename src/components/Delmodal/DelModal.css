@@ -28,7 +28,7 @@
   justify-content: center;
   z-index: 1;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .modal-del-header {
     position: relative;
     top: 3rem;
@@ -39,7 +39,7 @@
   height: 100%;
   width: 100%;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .modal-del-content {
     height: 262px;
     width: auto;
@@ -60,7 +60,7 @@
   margin-left: 16px;
   font-size: 28px;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .modal-del__title {
     position: relative;
     bottom: 3.5rem;
@@ -73,7 +73,7 @@
   font-size: 15px;
   margin-top: 1rem;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .modal-del__content {
     margin-top: 0px;
     width: 75%;
@@ -89,7 +89,7 @@
   display: flex;
   justify-content: space-between;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .modal-del-footer {
     position: relative;
     width: 25%;

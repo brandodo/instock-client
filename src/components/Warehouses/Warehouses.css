@@ -18,30 +18,24 @@
 }
 .warehouse {
   padding-top: 1rem;
-  position: relative;
-  margin-left: 1rem;
-  margin-right: 1rem;
   z-index: 1;
-  top: -4rem;
+  margin: -72px 16px 40px;
   background: #ffffff;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse {
-    top: -8rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: -94px 32px 268px;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse {
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin: -94px 130px 161px;
   }
 }
 .warehouse-topbar {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   color: #232940;
@@ -52,7 +46,7 @@
   font-size: 11px;
   position: relative;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse-topbar {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -61,7 +55,7 @@
     list-style-type: none;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse-topbar {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -89,40 +83,40 @@
   right: 20%;
 }
 .warehouse__nav {
-  padding: 0 1rem;
+  padding: 24px 1rem 0;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__nav {
-    padding: 0 2rem;
+    padding: 4px 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 4px 40px;
   }
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__nav-right {
     display: flex;
     align-items: center;
   }
 }
 .warehouse__title {
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 1rem 0;
   font-size: 28px;
   line-height: 36px;
   margin-bottom: 0;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__title {
     padding-left: 0;
     font-size: 32px;
@@ -143,14 +137,14 @@
   border: 1px solid #2e66e5;
   outline: 0;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__form-search {
     padding-right: 1.5rem;
     margin-right: 1rem;
     width: -webkit-fill-available;
   }
 }
-@media (min-width: 767px) and (max-width: 1279px) {
+@media (min-width: 1279px) {
   .warehouse__form-search {
     padding-right: 6.5rem;
     width: -webkit-fill-available;
@@ -161,7 +155,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -170,7 +164,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -179,7 +173,7 @@
   color: #5c667e;
   font-size: 13px;
   line-height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Reg";
   font-weight: 400;
   font-style: normal;
 }
@@ -188,7 +182,7 @@
   right: 15px;
   top: 6px;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__form-search-icon {
     right: 30px;
   }
@@ -208,7 +202,7 @@
 .warehouse__button:hover {
   background: #232940;
 }
-@media (min-width: 479px) and (max-width: 767px) {
+@media (min-width: 767px) {
   .warehouse__button {
     width: none;
     padding: 0 1rem;
@@ -218,7 +212,7 @@
 .warehouse__button-text {
   width: 127px;
   height: 20px;
-  font-family: "Titillium";
+  font-family: "Titillium-Semi";
   font-weight: 600;
   font-style: normal;
   font-size: 13px;
