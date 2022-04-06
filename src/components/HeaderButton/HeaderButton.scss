@@ -1,4 +1,6 @@
-@import "../../partials/variables";
+@use "../../partials/variables" as *;
+@use "../../partials/mixin" as *;
+@use "../../partials/typography";
 
 .header__button {
   background-color: $graphite;
@@ -6,30 +8,32 @@
   border-radius: 20px;
   border-style: solid;
   border-color: $graphite;
-  
+  width: 50%;
+  height: 2.5rem;
+
+  @include tablet {
+    width: 50%;
+    height: 2.5rem;
+  }
+
+  @include desktop {
+    width: 10.5rem;
+    height: 2.5rem;
+  }
 }
-.header__button:hover {
+.header__button:hover,
+.header__button:active {
   background-color: $instock-black;
   border-color: $instock-black;
   color: $white;
-}
-@media (max-width: $mobile-breakpoint) {
-  .header__button {
-    width: 10.5rem;
+  cursor: pointer;
+
+  @include mobile {
     height: 2.5rem;
   }
 }
 
-@media (max-width: $tablet-breakpoint) {
-  .header__button {
-    width: 8em;
-    height: 2.5rem;
-  }
-}
 
-@media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
-  .header__button {
-    width: 10.5rem;
-    height: 2.5rem;
-  }
+.header__buttons .selected {
+  background: black;
 }
