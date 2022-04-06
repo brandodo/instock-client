@@ -38,20 +38,20 @@
   }
 }
 
-.header__button:hover {
+.header__button:hover,
+.header__button:active {
   background-color: #131b2c;
   border-color: #131b2c;
   color: #ffffff;
   cursor: pointer;
 }
 @media (min-width: 0px) {
-  .header__button:hover {
-    width: 12rem;
+  .header__button:hover,
+.header__button:active {
     height: 2.5rem;
   }
 }
-@media (min-width: 767px) {
-  .header__button:hover {
-    width: 11rem;
-  }
+
+.header__buttons .selected {
+  background: black;
 }/*# sourceMappingURL=HeaderButton.css.map */

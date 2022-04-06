@@ -21,18 +21,19 @@
     height: 2.5rem;
   }
 }
-.header__button:hover {
+.header__button:hover,
+.header__button:active {
   background-color: $instock-black;
   border-color: $instock-black;
   color: $white;
   cursor: pointer;
 
   @include mobile {
-    width: 12rem;
     height: 2.5rem;
   }
+}
 
-  @include tablet {
-    width: 11rem;
-  }
+
+.header__buttons .selected {
+  background: black;
 }
