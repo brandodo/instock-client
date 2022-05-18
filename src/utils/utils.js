@@ -1,4 +1,4 @@
 export const API_URL =
   process.env.NODE_ENV === "production"
-    ? "https://instock-server.herokuapp.com"
+    ? "https://shopify-backend-application.brandono1.repl.co"
     : "http://localhost:8080";
